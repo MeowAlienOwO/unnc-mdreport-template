@@ -41,8 +41,8 @@ pandoc --natbib \
 latexmk -pdfxe -f -synctex=1 \
     -interaction=nonstopmode main
 
-# latexmk -c
-# rm *.bbl *.synctex.gz *.xdv
+latexmk -c
+rm *.bbl *.synctex.gz *.xdv
 
 cd $CURR_DIR
 

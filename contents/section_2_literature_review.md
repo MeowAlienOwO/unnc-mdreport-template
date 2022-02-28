@@ -190,7 +190,7 @@ Search[@gendreau_tabusearchheuristic_1994], Variable Neighborhood Search
 maintains a set of solution representation with high-level guidance. In
 low-level, population-based methods rely on some local search methods to obtain
 solution candidates. Several works implemented Genetic
-Algorithms[@nagatanagata_edgeassemblybasedmemetic_2009,
+Algorithms[@nagata_edgeassemblybasedmemetic_2009,
 @prins_simpleeffectiveevolutionary_2004, @vidal_hybridgeneticalgorithm_2012].
 @reimann_dantssavingsbased_2004 implemented ant colony algorithm with
 Clarke-Wright low-level heuristics.

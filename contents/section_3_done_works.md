@@ -6,7 +6,7 @@ Works done so far
 =====
 The work in second year mainly consists two parts. First, I have finished a
 paper about a stochastic online 1D-BPP solution based on pricing concept and
-pattern recognition, which is recently submitted to IJCAI 22 (rejected). Second,
+pattern recognition, which is recently submitted to IJCAI 22. Second,
 I have participated the Amazon Last Mile Challendge. This problem can be simply
 described as TSP with human-factor and uncertainty. This part will discuss the
 key point of these two works.
