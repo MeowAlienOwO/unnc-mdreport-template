@@ -26,3 +26,4 @@ section_[0-9]*_*.md
 - [ ] image style
 - [x] author and title configuration
 - [x] auto make script
+- [ ] table format

@@ -11,7 +11,6 @@ TEX=main.tex
 REF=ref.bib
 TARGET=main.pdf
 
-
 cp $TEMPLATE $BUILD_DIR/$TEX
 cp $CURR_DIR/ref.bib $BUILD_DIR/ref.bib
 
@@ -29,18 +28,22 @@ if [ -f $BUID_DIR/input.tex ]
 then
     cp $BUILD_DIR/input.tex $BUILD_DIR/.input.tex.bak
 fi
-
+# BUG: can't combine last md
 pandoc --natbib \
     --wrap=none \
     -L $FILTERS_DIR/centerimgs.lua \
-    -f markdown+smart+autolink_bare_uris \
-    $MARKDOWNS \
-    -o $MARKDOWN_INPUT
+    -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers \
+    -o $MARKDOWN_INPUT \
+    $MARKDOWNS
+
+
 
 latexmk -pdfxe -f -synctex=1 \
     -interaction=nonstopmode main
 
-latexmk -c
-rm *.bbl *.synctex.gz *.xdv
+# latexmk -c
+# rm *.bbl *.synctex.gz *.xdv
 
 cd $CURR_DIR
+
+echo $MARKDOWNS
