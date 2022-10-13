@@ -33,13 +33,13 @@ unlikely to perform good in Case 2. In this case, we can identify the value of
 patterns are different given different problem instance, even the type of items
 are similar.
 
-Table: 1D BPP instance example 
+                      Case 1                  Case 2                                    
+------------------   ---------------------   -------------------------------------------
+ Items                2x2, 3x1, 4x2, 5x1      2x6, 3x5, 4x2, 5x1                        
+ Best Fit             (5,4), (4,3,2), (2)     (5,4), (4,3,3), (3,3,3), (2,2,2,2,2), (2) 
+ Optimal Solution     (5,3,2), (4,4,2)        (5,3,2), (4,3,3), (4,3,3), (2,2,2,2,2)    
 
-|                 | Case 1              | Case 2                                   |
-|------------------|---------------------|------------------------------------------|
-| Items            | 2x2, 3x1, 4x2, 5x1  | 2x6, 3x5, 4x2, 5x1                       |
-| Best Fit         | {5,4}, {4,3,2}, {2} | {5,4}, {4,3,3}, {3,3,3}, {2,2,2,2,2}, {2}|
-| Optimal Solution | {5,3,2}, {4,4,2}    | {5,3,2}, {4,3,3}, {4,3,3}, {2,2,2,2,2}   |
+Table: 1D BPP instance example 
 
 In this work, we purpose using the pricing method to guide the pattern
 recognition and generate problem solution. A pricing method is a way to evaluate
@@ -62,7 +62,7 @@ $x^*$, denote $g(\lambda, \eta) = \inf_x L(x,\lambda, \eta)$ to be dual problem.
 By solving the dual problem, we obtain optimal $\lambda^*, \eta^*$ and objective
 value of dual problem. The objective value of dual problem represents shadow
 price. In our problem, shadow price can be seen as the value of pattern.
-@ford_suggestedcomputationmaximal_1958 represent column generation method that
+@fordSuggestedComputationMaximal1958 represent column generation method that
 uses similar idea to solve large-scale linear programming and later this idea is
 applied to many other optimization problems. In this work, we followed a similar
 approach as column generation to solve our problem.
@@ -107,7 +107,7 @@ appendix part of this report.
 ## Amazon Last Mile Routing Challendge
 
 
-Amazong Last Mile Routing Challenge [@mit-Amazon-2021] is aiming to solve
+Amazong Last Mile Routing Challenge [@mitAmazonLastMile2021] is aiming to solve
 real-world delivery problem which have highly uncertainty due to real-world
 routing network and human factors. It provides large dataset based on the
 logistic practics of Amazon and require participants to analayze data and come
@@ -140,7 +140,7 @@ Second, we identify the entry of exit of the zone by zone sequence, and do a
 secondary TSP within the zone. Finally, the sub-TSP of each zone is combined
 together to form a final solution. Since it is forbidden to use any commercial
 solver, we implemented Variable Neighborhood Search(VNS)
-[@mladenovic_variableneighborhoodsearch_1997]for TSP and applied on both stages.
+[@mladenovicVariableNeighborhoodSearch1997]for TSP and applied on both stages.
 This method gives in average 0.2 solution quality score, in comparision: the
 best solution of other team achieved 0.03.
 

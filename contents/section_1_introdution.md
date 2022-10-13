@@ -7,12 +7,12 @@ Introduction
 
 Combinatorial optimisation problems (COP) is a sub-field of mathematical
 optimisation problems that finds an optimal object given a finite collection of
-objects [@schrijver_combinatorialoptimizationpolyhedra_2003]. Since COP is
+objects [@schrijverCombinatorialOptimizationPolyhedra2003a]. Since COP is
 highly associated in real-world decision problems such as logisitics management
 and manufacturing industry, solving COP could help decision maker to improve the
 decision quality. Most COPs are considered as NP-Hard, which involve large
 search space in academic benchmarks and real-world problems
-[@michalewicz_evolutionaryalgorithms_2003]. People have developed several
+[@michalewiczEvolutionaryAlgorithms2003]. People have developed several
 classical methods to solve COP, including heuristics, solving integer/mixed
 integer programming model and metaheursitics. 
 
@@ -34,13 +34,13 @@ simulation together to face more real-world challendges. In this work, we will
 mainly discuss about machine learning, especially how Deep Reinforcement
 Learning (DRL) could take part in COP. Machine learning as part of artificial
 intelligence, is defined as a procedure to improve the performance of a system
-through historical data [@mitchell_machinelearning_1997]. Specifically,
+through historical data [@mitchellMachineLearning1997]. Specifically,
 reinforcement learning as sub-field of machine learning, define the learning
 process as optimize the decision quality by interaction with environment
-[@Silver_2016]. A well-known example by @Silver_2016 showed that DRL is able to
+[@silverMasteringGameGo2016]. A well-known example by @silverMasteringGameGo2016 showed that DRL is able to
 outperforms human top-level players in Go, which is proven to be
 PSPACE-hard. @bengioMachineLearningCombinatorial2020
-discussed about how machine learning helps solving COP, @bai-analytics-2022
+discussed about how machine learning helps solving COP, @baiAnalyticsMachineLearning2022
 later reviewed in detail how machine learning can be used in Vehicle Routing
 Problems. Overall, machine learning can: 1) learn expert knowledge of solving
 combinatorial problems, which could help reduce computation load in practical

@@ -79,7 +79,7 @@ The next-step research step will focusing on AGV routing problem and hopefully
 will finish 2 papers in incoming year. Comparing with vanilla VRP, this kind of problem 
 usually based on a graph representation of traffic net with multiple vehicles. The 
 algorithm need to deal with confilict/dead lock and load balance to avoid traffic jam, in some
-special case time window will be considered[@naiqiwu_agvroutingconflict_2003, @mohring_conflictfreerealtimeagv_2005, @smolic-rocak_timewindowsbased_2010].
+special case time window will be considered[@naiqiwuAGVRoutingConflict2003, @mohringConflictfreeRealtimeAGV2005, @smolic-rocakTimeWindowsBased2010].
 Firstly, with the data by Ningbo Port
 (Zhaoshang), we are able to study port routing problem with real-world
 dataset and identify more specific application scenario. This requires
@@ -98,11 +98,11 @@ Those planned paper will be based on the methodology that we first attempted in
 online stochastic 1D BPP problem: pricing the patterns. We will also combine the
 pricing techniques with deep reinforcement learning. Recent researches of AGV
  routing by approximation methods are more focusing on heuristics
-[@kabir_comparativeanalysisdifferent_2019, @santos_basedroutingscheduling_2021]
-and metaheuristics[@wu_intelligentalgorithmagv_2021, @banyai_optimizationmaterialsupply_2021]
+[@kabirComparativeAnalysisDifferent2019, @santosBasedRoutingScheduling2021]
+and metaheuristics[@wuIntelligentAlgorithmAGV2021, @banyaiOptimizationMaterialSupply2021]
 to deal with the conflict constraint. Such constraint are also the focus of 
-exact algorithms [@murakami_timespacenetworkmodel_2020, @wang_branchandboundapproachagv_2022].
-There are few Deep Reinforcement Learning based works [@lu_deepreinforcementlearning_2020, @kamoshida_acquisitionautomatedguided_2017],
+exact algorithms [@murakamiTimespaceNetworkModel2020, @wangBranchandboundApproachAGV2022].
+There are few Deep Reinforcement Learning based works [@luDeepReinforcementLearning2020, @kamoshidaAcquisitionAutomatedGuided2017],
 but this work is mainly focusing on the network architecture and feature engineering. 
 We purpose a pattern learning and selection process to identify high quality low-level routing patterns
 and use DRL to optimize and store the strategy by optimizing the problem objective with selection and organizing

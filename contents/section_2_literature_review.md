@@ -23,7 +23,7 @@ Bin packing problem (BPP) is one of the most studied problems in the
 covering/packing problem family. The problem is described as follows: given a
 sequence of items with different volumes, pack them into a finite number of
 bins(or containers), such that the number of bins used is minimised.  The 1D BPP formulation
-@martello_knapsackproblemsalgorithms_1990 is described by equation \ref{eq:bpp_formulation}.
+@martelloKnapsackProblemsAlgorithms1990 is described by equation \ref{eq:bpp_formulation}.
 
 $$
     \begin{aligned}
@@ -49,59 +49,59 @@ Constraint (5) ensures the bin usage is at least 1.
 Several variances of bin packing problems were identified in practical problems.
 The 2D/3D problems are highly linked to practical area such as wood or glass
 industries, media typesetting, inventory management, cloud computing
-[@lodi_twodimensionalpackingproblems_2002,
-@cid-garcia_positionscoveringtwostage_2020,
-@feng_multiobjectivemigrationalgorithm_2019]. These works usually consider rectangular items. 
+[@lodiTwodimensionalPackingProblems2002,
+@cid-garciaPositionsCoveringTwostage2020,
+@fengMultiobjectiveMigrationAlgorithm2019]. These works usually consider rectangular items. 
 Some industrial-driven problems
 extended to irregular shape items and allow rotation during packing
-[@bennell_tutorialirregularshape_2009,
-@han_constructionheuristicstwodimensional_2013,
-@lopez-camacho_unifiedhyperheuristicframework_2014,
-@martinez-sykora_matheuristicsirregularbin_2017
+[@bennellTutorialIrregularShape2009,
+@hanConstructionHeuristicsTwodimensional2013,
+@lopez-camachoUnifiedHyperheuristicFramework2014,
+@martinez-sykoraMatheuristicsIrregularBin2017
 ]. In some situation, on-time reaction is required therefore the online version
 of bin packing problem is identified. In such problems, item must be packed immediately
-once accepted [@seiden_onlinebinpacking_2002]. 
+once accepted [@seidenOnlineBinPacking2002]. 
 
-For 1D BPP, @johnson1973near had proposed several online heuristics including
+For 1D BPP, @johnsonNearoptimalBinPacking1973 had proposed several online heuristics including
 Next Fit, First Fit, Best Fit. Harmonic is another class of online heuristics
 that first classify the items and then pack the item according to some
 hand-crafted rules. Offline heuristic solutions usually sort the item sequence
-first, then do the packing with certain rules [@johnson1973near,
-@johnson_7160theorembin_1985, @hoberg_logarithmicadditiveintegrality_2017].
+first, then do the packing with certain rules [@johnsonNearoptimalBinPacking1973,
+@johnson7160TheoremBin1985, @hobergLogarithmicAdditiveIntegrality2017].
 Metaheuristics and hyperheuristics are also applied in 1D BPP,
-@perumal_binpackingproblems_2016 reviewed several metaheuristics and
-hyperheuristics paper, @yesodha_comparativestudyheuristic_2012 did some
+@perumalBinPackingProblems2016 reviewed several metaheuristics and
+hyperheuristics paper, @yesodhaComparativeStudyHeuristic2012 did some
 comparative research on metaheuristics and heuristics for 1D BPP. For exact
-algorithms, @carvalho_lpmodelsbin_2002 reviewed and analysed several (integer)
+algorithms, @carvalhoLPModelsBin2002 reviewed and analysed several (integer)
 linear programming formulation of 1D BPP and cutting stock problems since they
 are related.
 
-For higher order dimension problems, @coffman_introductionbinpacking_2004
+For higher order dimension problems, @coffmanIntroductionBinPacking2004 
 extended 1D heuristics First-Fit Decreasing and Next-Fit Decreasing to offline
 2D problems as FFD-Height and NFD-Height and analysed worst case, later Best-Fit
 Decreasing is also analysed. These methods consider height dimention of the 2D
 item and justify item on left in strip packing probem.
-@baker_orthogonalpackingstwo_1980 purposed Bottom-Left algorithm by let the item
+@bakerOrthogonalPackingsTwo1980 purposed Bottom-Left algorithm by let the item
 sorted by width, start packing at lowest possible position and left justified.
-@chung_packingtwodimensionalbins_1982 introduced 2-phrace algorithm that optain
+@chungPackingTwoDimensionalBins1982 introduced 2-phrace algorithm that optain
 a strip packing by Hybrid First-Fit and then consider the strip as item to solve
 1D BPP. 2-phrace heuristics were further enriched and discussed by 
-@frenk_hybridnextfitalgorithm_1987 and @berkey_twodimensionalfinitebinpacking_1987.
+@frenkHybridNextfitAlgorithm1987 and @berkeyTwodimensionalFiniteBinpacking1987.
 Metaheuristics is also applied widely in variance of BPP.
-@dowsland_experimentssimulatedannealing_1993 represent simulated annealing for
-bin packing problems. @jakobs_geneticalgorithmspacking_1996,
-@lodi_twodimensionalpackingproblems_2002
-[@lodi_approximationalgorithmsoriented_1999,
-@lodi_heuristicmetaheuristicapproaches_1999] introduced more metaheuristics methods
+@dowslandExperimentsSimulatedAnnealing1993 represent simulated annealing for
+bin packing problems. @jakobsGeneticAlgorithmsPacking1996,
+@lodiTwodimensionalPackingProblems2002
+[@lodiApproximationAlgorithmsOriented1999,
+@lodiHeuristicMetaheuristicApproaches1999] introduced more metaheuristics methods
 including generic algorithm and tabu search.
 
 We refer keen readers to several serveys to establish an overview of bin packing
-problems. @delorme_binpackingcutting_2016 represents definition, approximation
-and exact methods of 1D BPP. @lodi_twodimensionalpackingproblems_2002 focused on
-2D problems and @martello_threedimensionalbinpacking_2000 reviewed 3D problems,
-@christensen_approximationonlinealgorithms_2017 focused on approximation methods
+problems. @delormeBinPackingCutting2016 represents definition, approximation
+and exact methods of 1D BPP. @lodiTwodimensionalPackingProblems2002 focused on
+2D problems and @martelloThreeDimensionalBinPacking2000 reviewed 3D problems,
+@christensenApproximationOnlineAlgorithms2017 focused on approximation methods
 including heuristics and metaheuristics algorithms. For online problem,
-@galambos_onlinebinpacking_1995 reviewed several heuristic based approximation
+@galambosOnlineBinPacking1995 reviewed several heuristic based approximation
 methods. 
 
 ### Vehicle Routing Problem(VRP)
@@ -150,31 +150,31 @@ could either be strict such that the solution become infeasible once violate
 \end{equation}
 
 The research of VRP is also highly application-driven.
-@caceres-cruz_richvehiclerouting_2014 listed a rich set of variances including
+@caceres-cruzRichVehicleRouting2014 listed a rich set of variances including
 split-delivery VRP, heterogenerous fleet VRP, multiple depots VRP, etc. These
 problems usually solve more real-world applications by considering more
-constraints. @berhan_stochasticvehiclerouting_2014 reviewed several stochastic
+constraints. @berhanStochasticVehicleRouting2014 reviewed several stochastic
 VRP problems that some of decision variable is stochastic like custom demand,
-capacity of vehicle, or service time. @mor_vehicleroutingproblems_2020 consider
+capacity of vehicle, or service time. @morVehicleRoutingProblems2020 consider
 a class of VRP that the decision maker must consider the departure time of
 depot. The development of transportation technology arose the interest of the
-research community. @juan_electricvehicleslogistics_2016,
-@montoya_electricvehiclerouting_ and @erdelic_surveyelectricvehicle_2019 survey
+research community. @juanElectricVehiclesLogistics2016,
+@montoyaElectricVehicleRouting and @erdelicSurveyElectricVehicle2019 survey
 a set of VRP variance Electrinic Vehicles(EV). A core concern of EV is the
 technology of recharging, including battery switching vehicles, vehicles need to
 be charged by charging station and different charging network.  
 They also interested on how EV could help reduce pollution and carbon emission. 
 
 The heuristics of VRP can be divided into two classes: the constructive
-heuristics and improvement heuristics [@laporte_chapterheuristicsvehicle_2014,
-@cordeau_guidevehiclerouting_2002]. The Clarke and Wright savings heuristics is
+heuristics and improvement heuristics [@laporteChapterHeuristicsVehicle2014,
+@cordeauGuideVehicleRouting2002]. The Clarke and Wright savings heuristics is
 one of the most classical constructive heuristics
 [@clarkeSchedulingVehiclesCentral1964]. This method initializes the solution by
 construct back and forth routes, then iteratively merge the routes that could
-save most distance. @lin_computersolutionstraveling_1965 purposed a classical
+save most distance. @linComputerSolutionsTraveling1965 purposed a classical
 improvement method to solve TSP by iteratively remove and replace $\lambda$
 edges in the solution that could improve the solution most, until no futher
-improvement could be found. @lin_effectiveheuristicalgorithm_1973 improved this
+improvement could be found. @linEffectiveHeuristicAlgorithm1973 improved this
 method later to allow dynamic $\lambda$.
 
 Metaheuristcs of VRP can be roughtly classified as local search methods and
@@ -183,16 +183,16 @@ iteratively change the solution to its neighborhood. Unlike the greedy
 improvment heuristics, local search allows new solution to be less optimal to
 let the algorithm able to jump out of local minima. Local search algorithms can
 be implemented by Simulated Annealing
-[@osman_metastrategysimulatedannealing_1993, @groer_librarylocalsearch_2010,
-@li_verylargescalevehicle_2005], Tabu
-Search[@gendreau_tabusearchheuristic_1994], Variable Neighborhood Search
-[@kytojoki_efficientvariableneighborhood_2007]. Population-based methods
+[@osmanMetastrategySimulatedAnnealing1993, @groerLibraryLocalSearch2010,
+@liVeryLargescaleVehicle2005], Tabu
+Search[@gendreauTabuSearchHeuristic1994], Variable Neighborhood Search
+[@kytojokiEfficientVariableNeighborhood2007]. Population-based methods
 maintains a set of solution representation with high-level guidance. In
 low-level, population-based methods rely on some local search methods to obtain
 solution candidates. Several works implemented Genetic
-Algorithms[@nagata_edgeassemblybasedmemetic_2009,
-@prins_simpleeffectiveevolutionary_2004, @vidal_hybridgeneticalgorithm_2012].
-@reimann_dantssavingsbased_2004 implemented ant colony algorithm with
+Algorithms[@nagataEdgeAssemblybasedMemetic2009,
+@prinsSimpleEffectiveEvolutionary2004, @vidalHybridGeneticAlgorithm2012].
+@reimannDAntsSavingsBased2004 implemented ant colony algorithm with
 Clarke-Wright low-level heuristics.
 
 ### Typical solution methods
@@ -212,9 +212,9 @@ We discuss two classical exact algorithms: branch-and-bound and dynamic
 programming to represent the overview of exact algorithms. Both algorithms
 behave divide-and-conquer manner to divide the problem into sub-problems, and
 combine them together to form final solution. Branch-and-Bound methods
-[@lawler_branchandboundmethodssurvey_1966] divide the whole search space into
+[@lawlerBranchandBoundMethodsSurvey1966] divide the whole search space into
 several sub-spaces recursively, and output the best feasible solution among all sub-spaces.
-Dynamic programming [@bellman_dynamicprogramming_1966] focusing on solving the
+Dynamic programming [@bellmanDynamicProgramming1966] focusing on solving the
 problems that could share subproblems. In that case, instead of solving each
 subproblem, the output of shared subproblems will be maintained and reused. The solution
 is constructed by recursively solve and reuse subproblems.
@@ -226,10 +226,10 @@ brannch-and-bound as an example to show how method could be applied to improve
 the solution speed of the algorithm. Consider the branch-and-bound procedure can be viewed as  
 as traversing a searching tree whose node is a sub-space of the whole search
 space, people consider two major strategy: improve the search strategy
-[@ignall_applicationbranchbound_1965,
-@lomnicki_branchandboundalgorithmexact_1965] and pruning non-optimal
-branch[@land_automaticmethodsolving_1960, @ignall_applicationbranchbound_1965,
-@rios-mercado_branchandboundalgorithmpermutation_1999].
+[@ignallApplicationBranchBound1965,
+@lomnickiBranchandBoundAlgorithmExact1965] and pruning non-optimal
+branch[@landAutomaticMethodSolving1960, @ignallApplicationBranchBound1965,
+@rios-mercadoBranchandboundAlgorithmPermutation1999].
 
 #### Approximation algorithms
 
@@ -242,12 +242,12 @@ quality of these algorithms usually have larger gap towards optimal comparing
 with metaheuristics solutions. These methods are also easily be trapped to some
 local optima. 
 
-Metaheuristic algorithms [@glover_futurepathsinteger_1986] combines the
+Metaheuristic algorithms [@gloverFuturePathsInteger1986] combines the
 rule-based heuristics with higher level framework which aiming to explore the
 whole search space more efficiently. Comparing with problem-specific rule-based
 algorithms, metaheuristics can be seen as general framework and can adapt to
 different problems by making minimal modification
-[@blum_metaheuristicscombinatorialoptimization_2003]. This makes metaheuristics
+[@blumMetaheuristicsCombinatorialOptimization2003]. This makes metaheuristics
 natually suitable to deal with the situation that the problem parameters are
 uncertain. Further, the domain-specific knowledge and handcraft design effort
 are reduced. However, although experimentally successful in many problems,
@@ -261,7 +261,7 @@ global optimal solution.
 ## Machine Learning and connection to COP
 
 Machine learning is the research area that focusing on improve the performance
-of a system by experience or data [@mitchell_machinelearning_1997]. It is a wide
+of a system by experience or data [@mitchellMachineLearning1997]. It is a wide
 and active research area, and also highly connected to optimization topics.
 Optimization methods are applied to help the learning system to adjust model
 parameter given data. In this section, we briefly separate the research field
@@ -273,7 +273,7 @@ optimization field more tightly than the other two methods.
 ### Supervised Learning
 
 In supervised learning, the system learns a map from input to output by example
-input-output data [@russell_artificialintelligencemodern_2010]. The aiming of
+input-output data [@russellArtificialIntelligenceModern2010]. The aiming of
 the learning process is defined as mininmizing the gap between the model output and example
 output label, i.e. the error. The measure that evaluate the gap between of model output and
 example output is defined as loss function, which is vary according to problem
@@ -283,30 +283,30 @@ but also on unknown future data.
 
 Supervised learning can be applied in several aspects in COP algorithms. One
 possble approach is to improve existing exact/approximate algorithm.
-@baltean-lugojan_selectingcuttingplanes_ consider exact solution of non-convex
+@baltean-lugojanSelectingCuttingPlanes consider exact solution of non-convex
 quadratic programming problem. In this problem, supervised learning is applied
 to replace the computation-expencive sub-matrix selection procedure. Several
 works was done to improve the performance of branch-and-bound methods to help
-improve the efficiency of branching [@alvarez_supervisedmachinelearning_2014,
-@alvarez_machinelearningbasedapproximation_2017,
-@khalil_learningbranchmixed_2016, @gasse_exactcombinatorialoptimization_2019].
+improve the efficiency of branching [@alvarezMachineLearningBasedApproximation2017,
+@alvarezSupervisedMachineLearning2014,
+@khalilLearningBranchMixed2016, @gasseExactCombinatorialOptimization2019].
 
 Another approach is to learn a model to predict the solution, which can be
 viewed as end-to-end approach. A typical work is done by
 @vinyalsPointerNetworks2017 learns a model to generate VRP solution given
-problem instance. @larsen_predictingtacticalsolutions_2021 use neural
+problem instance. @larsenPredictingTacticalSolutions2021 use neural
 network to predict the solution of stochastic loan programming model.
 
 Finally, we pointed out that supervised learning are frequently to help
-configuring the problem. @kruber_learningwhenuse_2017 and
-@bonami_learningclassificationmixedinteger_2018 applies learning to predict the
+configuring the problem. @kruberLearningWhenUse2017 and
+@bonamiLearningClassificationMixedInteger2018 applies learning to predict the
 structure of problem (whether to decompose or linearlize) to improve the
 solution speed. A more straight-forward approach is to use supervise learning to
 learn the piece of information that helps build the model.
-@markovi_usingdatamining_2005 build the stochastic customers' demand model by
-training neural networks. @fuce_solvingstrategyrealworld_2010 learns to classify
+@markoviUSINGDATAMINING2005 build the stochastic customers' demand model by
+training neural networks. @fuceSolvingStrategyRealworld2010 learns to classify
 the customer's commands. For real world problems,
-@zhang_datadrivenintelligenttransportation_2011 reviewed several data-driven
+@zhangDataDrivenIntelligentTransportation2011 reviewed several data-driven
 traffic management systems where computer vison are applied to learn the
 environment.
 
@@ -314,9 +314,9 @@ environment.
 Unlike supervised learning, unsupervised learning does not have input-output
 pair. Unsupervised learning is aiming to capture the feature of the example. A
 common approach is trying to fit the joint distribution of given data. According
-to @bengio_machinelearningcombinatorial_2021, there are very limited work trying
+to @bengioMachineLearningCombinatorial2021, there are very limited work trying
 to combine unsupervised learning with COP. An example by
-@erdogan_greenvehiclerouting_2012 made some attempt of combine unsupervised
+@erdoganGreenVehicleRouting2012 made some attempt of combine unsupervised
 learning to help solve green-VRP problem.
 
 ### Reinforcement Learning
@@ -329,11 +329,11 @@ environment. The agent learns a policy to maximise accumulated reward signal by
 trial-and-error search through interaction with the environment
 [@suttonReinforcementLearningIntroduction1998, @nianReviewReinforcementLearning2020]. In operation research
 context, reinforcement learning is also referred to approximate dynamic
-programming [@bertsekas2008approximate] or neuro-dynamic programming
-[@bertsekas1995neuro]. 
+programming [@bertsimasDatadrivenRobustOptimization2018] or neuro-dynamic programming
+[@bertsekasApproximateDynamicProgramming2008]. 
 
 Reinforcement learning (RL) is formalised as the optimal control problem of
-Markov decision processes (MDP) [@howard1960dynamic]. A MDP is defined by
+Markov decision processes (MDP) [@howardDynamicProgrammingMarkov1960]. A MDP is defined by
 4-tuple $(S, A, P_a, R_a)$ where $S$ represents the state space, $A$ represents
 action space, $P_a(s, s') == \Pr(s_{t+1} = s'|s_t = s, a_t = a)$ is the
 transition function between two states given action and current state, $R_a(s,
@@ -359,10 +359,10 @@ machine learning methods usually use relatively simple models
 with relative papers. Deep learning could be used in modelling environment,
 preprocessing RL input [@jodogneClosedLoopLearningVisual2007], modelling the value
 function of each state,  or generate policy [@suttonReinforcementLearningIntroduction1998].
-Important algorithms in DRL include deep Q networks [@mnih2013playing],
+Important algorithms in DRL include deep Q networks [@mnihAsynchronousMethodsDeep2016],
 policy gradients based methods [@suttonReinforcementLearningIntroduction1998,
 @schulmanProximalPolicyOptimization2017], Monte Carlo Tree Search
-[@Silver_2016, @silverMasteringChessShogi2017],
+[@silverMasteringGameGo2016, @silverMasteringChessShogi2017],
 Actor-Critic[@kondaActorCriticAlgorithms, @mnihAsynchronousMethodsDeep2016]. 
 
 #### RL for VRP
@@ -375,7 +375,7 @@ solution as action. A new state switches by adding a new vertex to current
 solution. Reward function usually determined according to the nature of problem,
 e.g. the total cost. @vinyalsPointerNetworks2017 purposed Pointer Network, a
 network structure that combined encoder-decoder structure with attention
-mechanism[@vaswani_attentionallyou_2017] to select nodes. The structure is able
+mechanism[@vaswaniAttentionAllYou2017] to select nodes. The structure is able
 to solve the routing problem by masking out illegal solutions. They use pointer
 network to solve Travelling Salesman Problem(TSP) by supervised learning given
 problem instances and sample solutions. Later @belloNeuralCombinatorialOptimization2017 trained
@@ -416,32 +416,34 @@ model the policy of bin selection. Splitting the problem into two stages, that
 is, use a high-level hyper-heuristics model (where may use RL method) to pick a
 region or choose a heuristic, then generate a solution using low-level
 heuristics. This approach maintains the flexibility of heuristics while reducing
-search space. @haffari_analysisstagealgorithm_ applied a TD-$\lambda$ based
+search space. @haffariAnalysisSTAGEAlgorithm applied a TD-$\lambda$ based
 algorithm STAGE to learn the evaluation function to evaluate the quality of the
 initial state of local search and tested on bin packing problems. Similarly,
 @caiReinforcementLearningDriven2019 uses reinforcement learning to generate an initial
 solution for further heuristics optimisation. They also use the signal generated
 by heuristics to optimise the training of RL model.
-@silva-galvez_discoveringactionregions_2020 split bin packing problems into action
+@silva-galvezDiscoveringActionRegions2020 split bin packing problems into action
 regions, and select suitable heuristics by a hyper-heuristic framework. Recent
 researches also showed with the development of RL, a single RL solution for BPP
-is possible. @balaji_orlreinforcementlearning_2019 purpose use Proximal Policy
+is possible. @balajiORLReinforcementLearning2019 purpose use Proximal Policy
 optimisation(PPO) to solve online stochastic optimisation problems, including
 BPP, VRP and newsvendor problem. 
 
 
 The methods on higher dimension BPP are mixed according to what kind of problem
-the researchers interested in. @kundu_deeppackvisionbased2d_2019 applied Convolutional
+the researchers interested in. @kunduDeepPackVisionBased2D2019 applied Convolutional
 Neural Networks(CNN) [@lecunGradientbasedLearningApplied1998] to solve online 2D BPP.
 @vermaGeneralizedReinforcementLearning2020 apply DQN to solve 3D BPP with only a single container.
 They define movements for rectangle items and train DQN to select movements.
 @huSolvingNew3D2017 apply policy-based network to produce item packing sequence
 given original item sequence for 3D bin packing problems. The items will then
-be packed using traditional heuristics. @zhao_online3dbin_2021 use CNN to encode
+be packed using traditional heuristics. @zhaoOnline3DBin2021 use CNN to encode
 empty space for 3D BPP and then use constrained programming to find loading
 position. For multiple bins, they use Monte Carlo permutation tree to adjust
 the sequence of item input and then place items with previous mentioned
-methods. @laterre_rankedrewardenabling_2018 purposed a self-competitive mechanism to train an
+methods. @laterreRankedRewardEnabling2018 purposed a self-competitive mechanism to train an
 agent to beat the record generated by itself to solve 2D and 3D BPP. For
 practical problems, @wangSelfplayLearningStrategies2021 used DRL to improve the resource
 assignment in Open-RAN networks. 
+
+
