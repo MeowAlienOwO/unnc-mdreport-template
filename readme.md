@@ -27,3 +27,4 @@ section_[0-9]*_*.md
 - [x] author and title configuration
 - [x] auto make script
 - [ ] table format
+- [ ] pseudocode

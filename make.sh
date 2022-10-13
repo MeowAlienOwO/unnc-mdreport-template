@@ -28,15 +28,13 @@ if [ -f $BUID_DIR/input.tex ]
 then
     cp $BUILD_DIR/input.tex $BUILD_DIR/.input.tex.bak
 fi
-# BUG: can't combine last md
+
 pandoc --natbib \
     --wrap=none \
     -L $FILTERS_DIR/centerimgs.lua \
-    -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers \
+    -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers+pipe_tables+simple_tables \
     -o $MARKDOWN_INPUT \
     $MARKDOWNS
-
-
 
 latexmk -pdfxe -f -synctex=1 \
     -interaction=nonstopmode main
@@ -46,4 +44,6 @@ rm *.bbl *.synctex.gz *.xdv
 
 cd $CURR_DIR
 
-echo $MARKDOWNS
+# echo $MARKDOWNS
+# echo $FILTERS_DIR
+# echo $MARKDOWN_INPUT
