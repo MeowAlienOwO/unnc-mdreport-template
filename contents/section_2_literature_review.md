@@ -447,3 +447,46 @@ practical problems, @wangSelfplayLearningStrategies2021 used DRL to improve the 
 assignment in Open-RAN networks. 
 
 
+
+## Automated Guided Vehicle(AGV) And Related Problems
+Automated Guided Vehicles (AGVs) are a class of mobile vehicles that guided by 
+physical guidance like magnetic tape or induction lines, radar or computer visual.
+AGVs is now heavily applied in modern industry and logistics field. 
+Researchers and industrial engineers focus on several practical problems, including:
+1) avoid accidents such as traffic jams and collisions, 2) optimise critical metrics such as travel time and 
+fuel cost.
+
+### AGV Dispatching
+
+The dispatching problem is concerned with the process of selecting and assigning tasks to vehicles [@coReviewResearchAGVS1991, @langevinDispatchingRoutingScheduling1996].
+Although application scenarios vary, in general, the dispatching problem considers optimising critical metrics while satisfying hard or soft constraints.
+Possible metrics including: minimising load waiting time, maximising system throughput, minimising queue length, or guaranteeing the processing power of critical nodes. 
+In the early days of related research, researchers proposed rule-based algorithms. @kimDevelopingDispatchingRule1995 uses several functions to balance transport 
+distance with work weights and target node state information. Rule-based heuristics are usually response in short time and can give feasible solutions in a 
+short time, but their resulting policies tend to have a large optimisation space. Dispatch models developed based on metaheuristic [@bianchiSurveyMetaheuristicsStochastic2009] algorithms 
+have also been applied to solve AGV dispatch problems[@udhayakumarTaskSchedulingAGV2010, @nasoMulticriteriaMetaHeuristicsAGV2005, @linNetworkModelEffective2006]. 
+Such methods usually lead to better solutions, but their optimality is not 
+theoretically guaranteed. A range of mathematical planning-based algorithms, such as integer programming and mixed integer programming, 
+have been applied where a higher degree of optimality is required [@kasilingamMathematicalModelingAGVS1991]. These methods usually give optimal or near-optimal solutions for a given scenario, 
+but their modelling requires significant domain knowledge and expertise, and due to the NP-hard nature of the problem, the amount of computation required 
+increases dramatically when faced with a large number of AGVs or environmental variables. In recent years, with the development of machine learning and 
+reinforcement learning techniques, AGV dispatching algorithms have been combined with these techniques, such as @changAGVDispatchingAlgorithm2022 using deep Q-networks to overcome 
+the difficulties of mathematical modelling in complex production scenarios, and @liArtificialIntelligenceEmpowered2019 using machine learning methods to extrapolate the future tasks of the system in order to pre-dispatch AGVs.
+
+
+### AGV Routing
+
+The AGV wayfinding problem is concerned with the decision to select the particular path that each vehicle needs to perform, 
+enabling it to complete its transport task. In particular, under certain conditions, researchers also consider the arrival and 
+departure times of vehicles along the route to prevent conflicts and even collisions of resources along the route [3,4], a sub-problem 
+also known as the Scheduling of AGVs. Due to the similarity of the problems, AGV routing is often reduced to a Vehicle Routing Problem 
+(VRP). Considering the timeliness of the decision, the routing algorithm can be divided into static routing and dynamic routing. Static 
+routing does not change routes during algorithm execution, while dynamic routing will switch routes depending on the scenario. Dynamic 
+pathing often requires more powerful computational resources and sub-optimal algorithms to achieve real-time computation, while static 
+pathing has more abundant computational resources. On the other hand, static pathfinding is difficult to cope with unexpected scenarios, 
+especially if the AGV comes with functions such as obstacle avoidance, and is prone to problems such as deadlock. The classical AGV pathfinding 
+algorithm models the pathfinding task as a VRP problem with a time window, and the deadlock prevention of AGVs is achieved by limiting the node 
+occupation through the time window. The aforementioned heuristics, meta-heuristics, mathematical modelling algorithms and other methods have more 
+mature research results for VRP problems with time windows [13-16]. Considering the conflict scenario of AGVs, [17-19] proposed a series of 
+heuristic pathfinding algorithms based on Dijkstra's shortest circuit. the study of the scheduling problem of AGVs is relatively independent, 
+[20] proposed a framework for optimising terminal scheduling, [21] used resource analysis method to analyse the AGV scheduling problem.
