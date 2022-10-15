@@ -478,7 +478,7 @@ the difficulties of mathematical modelling in complex production scenarios, and 
 
 The AGV wayfinding problem is concerned with the decision to select the particular path that each vehicle needs to perform, 
 enabling it to complete its transport task. In particular, under certain conditions, researchers also consider the arrival and 
-departure times of vehicles along the route to prevent conflicts and even collisions of resources along the route [3,4], a sub-problem 
+departure times of vehicles along the route to prevent conflicts and even collisions of resources along the route [@coReviewResearchAGVS1991, @langevinDispatchingRoutingScheduling1996], a sub-problem 
 also known as the Scheduling of AGVs. Due to the similarity of the problems, AGV routing is often reduced to a Vehicle Routing Problem 
 (VRP). Considering the timeliness of the decision, the routing algorithm can be divided into static routing and dynamic routing. Static 
 routing does not change routes during algorithm execution, while dynamic routing will switch routes depending on the scenario. Dynamic 
@@ -487,6 +487,7 @@ pathing has more abundant computational resources. On the other hand, static pat
 especially if the AGV comes with functions such as obstacle avoidance, and is prone to problems such as deadlock. The classical AGV pathfinding 
 algorithm models the pathfinding task as a VRP problem with a time window, and the deadlock prevention of AGVs is achieved by limiting the node 
 occupation through the time window. The aforementioned heuristics, meta-heuristics, mathematical modelling algorithms and other methods have more 
-mature research results for VRP problems with time windows [13-16]. Considering the conflict scenario of AGVs, [17-19] proposed a series of 
+mature research results for VRP problems with time windows [@fisherVehicleRoutingTime1997, @solomonAlgorithmsVehicleRouting1987, @kolenVehicleRoutingTime1987, @ullrichIntegratedMachineScheduling2013]. 
+Considering the conflict scenario of AGVs, @mohringConflictfreeRealtimeAGV2005, @krishnamurthyDevelopingConflictFreeRoutes1993, and @huangLabelingAlgorithmNavigation1993 proposed a series of 
 heuristic pathfinding algorithms based on Dijkstra's shortest circuit. the study of the scheduling problem of AGVs is relatively independent, 
-[20] proposed a framework for optimising terminal scheduling, [21] used resource analysis method to analyse the AGV scheduling problem.
+@hartmannGeneralFrameworkScheduling2005 proposed a framework for optimising terminal scheduling, @xiaobingApplicationAnalyticProcess1998 used resource analysis method to analyse the AGV scheduling problem.

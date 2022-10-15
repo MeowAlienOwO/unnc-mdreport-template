@@ -106,7 +106,6 @@ appendix part of this report.
 
 ## Amazon Last Mile Routing Challendge
 
-
 Amazong Last Mile Routing Challenge [@mitAmazonLastMile2021] is aiming to solve
 real-world delivery problem which have highly uncertainty due to real-world
 routing network and human factors. It provides large dataset based on the
@@ -152,7 +151,7 @@ the neural-network model as a discriminator to judge which solution is better
 during the neighborhood selection procedure. The algorith pseudocode defined as
 below.
 
-```pseudocode
+<!-- ```pseudocode
 Algorithm VNS-ML:
 Input: route information, initial solution, theshold, judge net, max_iteration
 Output: model solution
@@ -183,7 +182,32 @@ For epoch -> 1..max_epoch
   train judge net by cross entropy(NLL in practice)
   
 return judge net
-```
+``` -->
+\begin{algorithm}[H]
+\SetAlgoLined
+\DontPrintSemicolon
+\KwResult{Result}
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\Input{Write input}
+\Output{Write output}
+
+\BlankLine
+\While{while cond} {
+  instructions1\;
+  instructions2\;
+
+} \eIf{condition}{
+  instructions3\;
+
+} {
+  instructions4\;
+}
+\caption{While Loop If/Else}
+
+
+\end{algorithm}
+
 <!-- The VNS-ML solution failed to achieve good result  -->
 
 The training of the discriminator (ML judger) achieved 80\% accuracy. We use both 
@@ -191,7 +215,7 @@ single solution features and features across two solution:
 
 1. Single solution
   - Total length
-  - Time_window violation count
+  - Time\_window violation count
   - Zone reenter rate
   - Number of line crossed by (lat, lng) coordinate. If line cross appears very
     often, we could argue that the route has backtrack.
