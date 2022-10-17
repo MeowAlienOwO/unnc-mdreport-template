@@ -183,30 +183,86 @@ For epoch -> 1..max_epoch
   
 return judge net
 ``` -->
+
 \begin{algorithm}[H]
 \SetAlgoLined
 \DontPrintSemicolon
-\KwResult{Result}
 \SetKwInOut{Input}{Input}
 \SetKwInOut{Output}{Output}
-\Input{Write input}
-\Output{Write output}
+\Input{route information, initial solution, theshold, judge net, max iteration}
+\Output{model solution}
 
 \BlankLine
-\While{while cond} {
+
+
+BestSolution := InitialSolution\;
+\For{Iteration := 1..MaxIteration>} {
+  \For{Attempt := 1..10} {
+    NextSolution := shake(BestSolution)\;
+    \eIf{Iteration < Theshold} {
+      \If{totalLength(BestSolution) > totalLength(NextSolution)} {
+        BestSolution := NextSolution\;
+      }
+    } {
+      \If {inference(feature(NextSolution, BestSolution, RouteInfo), JudgeNet) > 0.5} {
+        BestSolution := NextSolution \;
+      }
+
+    }
+  }
+
+}
+\caption{VNS-ML}
+
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\DontPrintSemicolon
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\Input{Route information, judge net, MaxEpoch}
+\Output{trained judge net}
+
+\BlankLine
+
+ generate dataset by extract solution-based features from middle solutions in vns\;
+\For{epoch := 1.. MaxEpoch} {
+
+  random choice two solution set sol1 and sol2\;
+  label := metric(sol1) < metric(sol2)\;
+  train judge net by cross entropy(NLL in practice)\;
+
+}
+\caption{Train Judge Net}
+
+\end{algorithm}
+
+
+<!-- \begin{algorithm}[h]
+\setalgolined
+\dontprintsemicolon
+\kwresult{result}
+\setkwinout{input}{input}
+\setkwinout{output}{output}
+\input{write input}
+\output{write output}
+
+\blankline
+\while{while cond} {
   instructions1\;
   instructions2\;
 
-} \eIf{condition}{
+} \eif{condition}{
   instructions3\;
 
 } {
   instructions4\;
 }
-\caption{While Loop If/Else}
+\caption{while loop if/else}
 
-
-\end{algorithm}
+\end{algorithm} -->
 
 <!-- The VNS-ML solution failed to achieve good result  -->
 
@@ -285,7 +341,7 @@ worse than VNS with only total length as objective function.
     \subfigure[100\% accept rate]{ 
     \begin{minipage}{6cm}
     \centering 
-    \includegraphics[]{../images/image-20210724202723584.png}  
+    \includegraphics[]{../images/image-20210724202723584.png}
     \end{minipage}
     }
     \subfigure[90\% accept rate]{ 
@@ -298,7 +354,7 @@ worse than VNS with only total length as objective function.
     \subfigure[80\% accept rate]{ 
     \begin{minipage}{6cm}
     \centering 
-    \includegraphics[]{../images/image-20210724204305988.png} 
+    \includegraphics[]{../images/image-20210724204305988.png}
     \end{minipage}
     }
     \label{fig:vns-ml}
