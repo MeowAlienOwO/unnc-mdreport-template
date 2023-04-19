@@ -1,0 +1,20 @@
+default:
+  image:
+    name: pandoc/latest
+    entrypoint: ["/bin/sh"]
+
+
+stages:
+  - build
+
+build:
+  - stage: build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == 'ann-y3-ci'
+  script:
+    - ./make.sh
+
+  artifacts:
+    paths:
+      - ./build
+  

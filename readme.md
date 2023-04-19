@@ -2,7 +2,7 @@
 
 ## Guide
 
-### Write markdown
+### Write Markdown
 All markdown file should match following pattern:
 ```
 section_[0-9]*_*.md
