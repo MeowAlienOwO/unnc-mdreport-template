@@ -8,9 +8,9 @@ stages:
   - build
 
 build:
-  - stage: build
+  stage: build
   rules:
-    - if: '$CI_COMMIT_BRANCH == 'ann-y3-ci'
+    - if: '$CI_COMMIT_BRANCH == "ann-y3-ci"'
   script:
     - ./make.sh
 
