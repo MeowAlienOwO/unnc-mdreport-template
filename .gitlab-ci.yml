@@ -3,7 +3,6 @@ default:
 
 stages:
   - build
-
 build:  
   stage: build
 
@@ -16,6 +15,7 @@ build:
     - if: '$CI_COMMIT_BRANCH == "ann-y3-ci"'
   script:
     - ls -al
+    - mkdir build
     - ./make.sh
 
   artifacts:
