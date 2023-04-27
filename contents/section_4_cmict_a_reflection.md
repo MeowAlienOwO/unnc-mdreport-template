@@ -78,6 +78,10 @@ time point. Those temporary members and works done will be described in developm
 
 
 
+## Port Operation Logic 
+
+A container port can be mainly 
+
 
 ## NTSS System Architecture
 
