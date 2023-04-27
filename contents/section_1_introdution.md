@@ -40,7 +40,7 @@ process as optimize the decision quality by interaction with environment
 [@silverMasteringGameGo2016]. A well-known example by @silverMasteringGameGo2016 showed that DRL is able to
 outperforms human top-level players in Go, which is proven to be
 PSPACE-hard. @bengioMachineLearningCombinatorial2020
-discussed about how machine learning helps solving COP, @baiAnalyticsMachineLearning2022
+discussed about how machine learning helps solve COP, @baiAnalyticsMachineLearning2022
 later reviewed in detail how machine learning can be used in Vehicle Routing
 Problems. Overall, machine learning can: 1) learn expert knowledge of solving
 combinatorial problems, which could help reduce computation load in practical

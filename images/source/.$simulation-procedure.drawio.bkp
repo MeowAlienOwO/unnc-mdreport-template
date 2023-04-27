@@ -1,0 +1,45 @@
+<mxfile host="Electron" modified="2023-04-26T08:26:59.983Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="nKiC-UttwmDcBqTYJ2u1" version="21.2.1" type="device">
+  <diagram name="第 1 页" id="I6MzRYu_BqYjA2w1-3EP">
+    <mxGraphModel dx="1418" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ynAlZ-jPWRnVrRX2w3la-1" target="ynAlZ-jPWRnVrRX2w3la-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-1" value="Start" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="ynAlZ-jPWRnVrRX2w3la-2" target="ynAlZ-jPWRnVrRX2w3la-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ynAlZ-jPWRnVrRX2w3la-2" target="ynAlZ-jPWRnVrRX2w3la-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-2" value="Initialise Yard&amp;nbsp;&lt;br&gt;and Device Position" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bR6EHTYc42ZngzzOFGmF-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="ynAlZ-jPWRnVrRX2w3la-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-4" value="Receive Yard Allocation Plan" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bR6EHTYc42ZngzzOFGmF-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ynAlZ-jPWRnVrRX2w3la-5" target="bR6EHTYc42ZngzzOFGmF-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ynAlZ-jPWRnVrRX2w3la-5" value="Vessel Unload Allocation Plan" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bR6EHTYc42ZngzzOFGmF-1" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="380" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="bR6EHTYc42ZngzzOFGmF-2" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="410" width="160" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -126,5 +126,3 @@ The rest of this section will discuss and analysis the detailed design of each m
 #### Refactor New Version
 
 ## Reflection
-
-## Future Suggestions
