@@ -1,3 +1,11 @@
 {
-    "ltex.additionalRules.languageModel": "en-GB"
+    "ltex.additionalRules.languageModel": "en-GB",
+    "ltex.additionalRules.motherTongue": "zh-CN",
+    "ltex.language": "en-GB",
+    "ltex.completionEnabled": false,
+    "ltex.enabled": [
+        "latex",
+        "markdown",
+        "bibtex"
+    ]
 }

@@ -11,7 +11,7 @@ role in solving COP.
 
 ## Combinatorial Optimisation Problems (COP)
 
-Combinationrial optimisation problem has been well-studied and have a rich
+Combinatorial optimisation problem has been well-studied and have a rich
 research context. In this section, we will focus on two problems that we
 interested most: Bin Packing Problem and Vehicle Routing Problem. We would
 briefly show the mathematical definition of the classic problem and its
@@ -57,8 +57,8 @@ extended to irregular shape items and allow rotation during packing
 [@bennellTutorialIrregularShape2009,
 @hanConstructionHeuristicsTwodimensional2013,
 @lopez-camachoUnifiedHyperheuristicFramework2014,
-@martinez-sykoraMatheuristicsIrregularBin2017
-]. In some situation, on-time reaction is required therefore the online version
+@martinez-sykoraMatheuristicsIrregularBin2017].
+ In some situation, on-time reaction is required therefore the online version
 of bin packing problem is identified. In such problems, item must be packed immediately
 once accepted [@seidenOnlineBinPacking2002]. 
 
@@ -78,12 +78,12 @@ are related.
 
 For higher order dimension problems, @coffmanIntroductionBinPacking2004 
 extended 1D heuristics First-Fit Decreasing and Next-Fit Decreasing to offline
-2D problems as FFD-Height and NFD-Height and analysed worst case, later Best-Fit
-Decreasing is also analysed. These methods consider height dimention of the 2D
-item and justify item on left in strip packing probem.
+2D problems as FFD-Height and NFD-Height and analysed the worst case, later Best-Fit
+Decreasing is also analysed. These methods consider height dimension of the 2D
+item and justify item on left in strip packing problem.
 @bakerOrthogonalPackingsTwo1980 purposed Bottom-Left algorithm by let the item
 sorted by width, start packing at lowest possible position and left justified.
-@chungPackingTwoDimensionalBins1982 introduced 2-phrace algorithm that optain
+@chungPackingTwoDimensionalBins1982 introduced 2-phrace algorithm that obtain
 a strip packing by Hybrid First-Fit and then consider the strip as item to solve
 1D BPP. 2-phrace heuristics were further enriched and discussed by 
 @frenkHybridNextfitAlgorithm1987 and @berkeyTwodimensionalFiniteBinpacking1987.
@@ -93,9 +93,9 @@ bin packing problems. @jakobsGeneticAlgorithmsPacking1996,
 @lodiTwodimensionalPackingProblems2002
 [@lodiApproximationAlgorithmsOriented1999,
 @lodiHeuristicMetaheuristicApproaches1999] introduced more metaheuristics methods
-including generic algorithm and tabu search.
+including Generic Algorithm and Tabu Search.
 
-We refer keen readers to several serveys to establish an overview of bin packing
+We refer keen readers to several surveys to establish an overview of bin packing
 problems. @delormeBinPackingCutting2016 represents definition, approximation
 and exact methods of 1D BPP. @lodiTwodimensionalPackingProblems2002 focused on
 2D problems and @martelloThreeDimensionalBinPacking2000 reviewed 3D problems,
@@ -109,8 +109,8 @@ methods.
 Vehicle routing problem is one of the most classical combinatorial optimisation
 problems since first proposed by @dantzigTruckDispatchingProblem1959. VRP is
 described as follows: there is a depot point and many customer points on the
-map, customer points should be visit to satisfy their needs. A fleet of vehicles
-start and back to depot point, visit all customer nodes on their tours. Each
+map, customer points should be visited to satisfy their needs. A fleet of vehicles
+starts and back to depot point, visit all customer nodes on their tours. Each
 vehicle should only visit the depot point twice: at start and end point. The
 objective function of VRP is the total cost of vehicle tours, like distance,
 fuel, etc. 
@@ -135,6 +135,8 @@ window constraint to original VRP problem (VRPTW). The time window constraint
 could either be strict such that the solution become infeasible once violate
 (hard constraint) or receive a penalty (soft constraint).
 
+<!-- LTeX: enabled=false -->
+
 \begin{equation}
     \label{eq:vrp_formulation}
     \begin{aligned}
@@ -149,18 +151,19 @@ could either be strict such that the solution become infeasible once violate
     \end{aligned}
 \end{equation}
 
+<!-- LTeX: enabled=true -->
 The research of VRP is also highly application-driven.
 @caceres-cruzRichVehicleRouting2014 listed a rich set of variances including
-split-delivery VRP, heterogenerous fleet VRP, multiple depots VRP, etc. These
+split-delivery VRP, heterogeneous fleet VRP, multiple depots VRP, etc. These
 problems usually solve more real-world applications by considering more
 constraints. @berhanStochasticVehicleRouting2014 reviewed several stochastic
-VRP problems that some of decision variable is stochastic like custom demand,
-capacity of vehicle, or service time. @morVehicleRoutingProblems2020 consider
+VRP problems that some decision variable is stochastic like custom demand,
+capacity of vehicle, or service time. @morVehicleRoutingProblems2020 considers
 a class of VRP that the decision maker must consider the departure time of
 depot. The development of transportation technology arose the interest of the
 research community. @juanElectricVehiclesLogistics2016,
 @montoyaElectricVehicleRouting and @erdelicSurveyElectricVehicle2019 survey
-a set of VRP variance Electrinic Vehicles(EV). A core concern of EV is the
+a set of VRP variance Electronic Vehicles(EV). A core concern of EV is the
 technology of recharging, including battery switching vehicles, vehicles need to
 be charged by charging station and different charging network.  
 They also interested on how EV could help reduce pollution and carbon emission. 
@@ -173,19 +176,19 @@ one of the most classical constructive heuristics
 construct back and forth routes, then iteratively merge the routes that could
 save most distance. @linComputerSolutionsTraveling1965 purposed a classical
 improvement method to solve TSP by iteratively remove and replace $\lambda$
-edges in the solution that could improve the solution most, until no futher
+edges in the solution that could improve the solution most, until no further
 improvement could be found. @linEffectiveHeuristicAlgorithm1973 improved this
 method later to allow dynamic $\lambda$.
 
-Metaheuristcs of VRP can be roughtly classified as local search methods and
-population-based. Local search methods starts from a initial solution and
-iteratively change the solution to its neighborhood. Unlike the greedy
-improvment heuristics, local search allows new solution to be less optimal to
+Metaheuristics of VRP can be roughly classified as local search methods and
+population-based. Local search methods starts from an initial solution and
+iteratively change the solution to its neighbourhood. Unlike the greedy
+improvement heuristics, local search allows new solution to be less optimal to
 let the algorithm able to jump out of local minima. Local search algorithms can
 be implemented by Simulated Annealing
 [@osmanMetastrategySimulatedAnnealing1993, @groerLibraryLocalSearch2010,
 @liVeryLargescaleVehicle2005], Tabu
-Search[@gendreauTabuSearchHeuristic1994], Variable Neighborhood Search
+Search[@gendreauTabuSearchHeuristic1994], Variable Neighbourhood Search
 [@kytojokiEfficientVariableNeighborhood2007]. Population-based methods
 maintains a set of solution representation with high-level guidance. In
 low-level, population-based methods rely on some local search methods to obtain
@@ -197,14 +200,14 @@ Clarke-Wright low-level heuristics.
 
 ### Typical solution methods
 
-There are mainly two branch of solution methods for COP: exact methods and
-approximation methods. The exact algorithms is aiming to find the theoretical
-optimal solution. Consider the NP-Hardness of COP, finding a optimal solution,
+There are mainly two branches of solution methods for COP: exact methods and
+approximation methods. The exact algorithm is aiming to find the theoretical
+optimal solution. Consider the NP-Hardness of COP, finding an optimal solution,
 especially large-scale COP, might become too complex to solve. Therefore, the
-complexity (time, space) is the major consern of exact algorithms. On the other hand,
+complexity (time, space) is the major concern of exact algorithms. On the other hand,
 in most case, instead of finding strict optimal, the decision maker are more willing to 
-get a good enough solution with relatively limited computation power.In this case, both the 
-solution quality and algorithm complexity are key critieria of the algorithm.
+get a good enough solution with relatively limited computation power. In this case, both the 
+solution quality and algorithm complexity are key criteria of the algorithm.
 
 #### Exact algorithms
 
@@ -216,15 +219,15 @@ combine them together to form final solution. Branch-and-Bound methods
 several sub-spaces recursively, and output the best feasible solution among all sub-spaces.
 Dynamic programming [@bellmanDynamicProgramming1966] focusing on solving the
 problems that could share subproblems. In that case, instead of solving each
-subproblem, the output of shared subproblems will be maintained and reused. The solution
-is constructed by recursively solve and reuse subproblems.
+sub-problem, the output of shared sub-problems will be maintained and reused. The solution
+is constructed by recursively solve and reuse sub-problems.
 
 <!-- pseudocode & formula of two algorithms -->
 Although the optimal solution is guaranteed by exact algorithms, it could happen
 that finding the solution requires unacceptable time or space. We take the
-brannch-and-bound as an example to show how method could be applied to improve
+branch-and-bound as an example to show how method could be applied to improve
 the solution speed of the algorithm. Consider the branch-and-bound procedure can be viewed as  
-as traversing a searching tree whose node is a sub-space of the whole search
+traversing a searching tree whose node is a subspace of the whole search
 space, people consider two major strategy: improve the search strategy
 [@ignallApplicationBranchBound1965,
 @lomnickiBranchandBoundAlgorithmExact1965] and pruning non-optimal
@@ -234,24 +237,24 @@ branch[@landAutomaticMethodSolving1960, @ignallApplicationBranchBound1965,
 #### Approximation algorithms
 
 The approximation algorithms can be considered as two parts: rule-based
-heuristics and metaheuristics. Rule-based methods are highly rely on the expert
+heuristics and metaheuristics. Rule-based methods are highly relied on the expert
 knowledge of the target domain. These algorithms are more human-understandable,
 and usually can achieve polynomial time complexity. Theoretically, the
-lowerbound of rule-based methods can be strictly proved. However, the solution
+lower bound of rule-based methods can be strictly proved. However, the solution
 quality of these algorithms usually have larger gap towards optimal comparing
 with metaheuristics solutions. These methods are also easily be trapped to some
 local optima. 
 
-Metaheuristic algorithms [@gloverFuturePathsInteger1986] combines the
+Metaheuristics algorithms [@gloverFuturePathsInteger1986] combines the
 rule-based heuristics with higher level framework which aiming to explore the
 whole search space more efficiently. Comparing with problem-specific rule-based
 algorithms, metaheuristics can be seen as general framework and can adapt to
 different problems by making minimal modification
 [@blumMetaheuristicsCombinatorialOptimization2003]. This makes metaheuristics
-natually suitable to deal with the situation that the problem parameters are
+naturally suitable to deal with the situation that the problem parameters are
 uncertain. Further, the domain-specific knowledge and handcraft design effort
 are reduced. However, although experimentally successful in many problems,
-metaheuristics usually can not analyze the lowerbound or gap to optimal
+metaheuristics usually can not analyse the lower bound or gap to optimal
 theoretically. Although usually can find better solution than rule-based
 methods, metaheuristics is also easily to come up with local optima rather than
 global optimal solution.
@@ -262,31 +265,31 @@ global optimal solution.
 
 Machine learning is the research area that focusing on improve the performance
 of a system by experience or data [@mitchellMachineLearning1997]. It is a wide
-and active research area, and also highly connected to optimization topics.
-Optimization methods are applied to help the learning system to adjust model
+and active research area, and also highly connected to optimisation topics.
+Optimisation methods are applied to help the learning system to adjust model
 parameter given data. In this section, we briefly separate the research field
 into supervised learning, unsupervised learning and reinforcement learning. We
 will focus on the reinforcement learning part not only is because it is the
-major topic of this report, but also because it connect the combinatorial
-optimization field more tightly than the other two methods.
+major topic of this report, but also because it connects the combinatorial
+optimisation field more tightly than the other two methods.
 
 ### Supervised Learning
 
 In supervised learning, the system learns a map from input to output by example
 input-output data [@russellArtificialIntelligenceModern2010]. The aiming of
-the learning process is defined as mininmizing the gap between the model output and example
+the learning process is defined as minimizing the gap between the model output and example
 output label, i.e. the error. The measure that evaluate the gap between of model output and
-example output is defined as loss function, which is vary according to problem
+example output is defined as loss function, which is varied according to problem
 property. Generalization is one of the major concern of supervised learning
 since people want the model have good performance not only on given examples,
 but also on unknown future data. 
 
 Supervised learning can be applied in several aspects in COP algorithms. One
-possble approach is to improve existing exact/approximate algorithm.
+possible approach is to improve existing exact/approximate algorithm.
 @baltean-lugojanSelectingCuttingPlanes consider exact solution of non-convex
 quadratic programming problem. In this problem, supervised learning is applied
 to replace the computation-expencive sub-matrix selection procedure. Several
-works was done to improve the performance of branch-and-bound methods to help
+works were done to improve the performance of branch-and-bound methods to help
 improve the efficiency of branching [@alvarezMachineLearningBasedApproximation2017,
 @alvarezSupervisedMachineLearning2014,
 @khalilLearningBranchMixed2016, @gasseExactCombinatorialOptimization2019].
@@ -298,16 +301,16 @@ problem instance. @larsenPredictingTacticalSolutions2021 use neural
 network to predict the solution of stochastic loan programming model.
 
 Finally, we pointed out that supervised learning are frequently to help
-configuring the problem. @kruberLearningWhenUse2017 and
+configure the problem. @kruberLearningWhenUse2017 and
 @bonamiLearningClassificationMixedInteger2018 applies learning to predict the
-structure of problem (whether to decompose or linearlize) to improve the
+structure of problem (whether to decompose or linearize) to improve the
 solution speed. A more straight-forward approach is to use supervise learning to
 learn the piece of information that helps build the model.
-@markoviUSINGDATAMINING2005 build the stochastic customers' demand model by
+@markoviUSINGDATAMINING2005 builds the stochastic customers' demand model by
 training neural networks. @fuceSolvingStrategyRealworld2010 learns to classify
 the customer's commands. For real world problems,
 @zhangDataDrivenIntelligentTransportation2011 reviewed several data-driven
-traffic management systems where computer vison are applied to learn the
+traffic management systems where computer vision are applied to learn the
 environment.
 
 ### Unsupervised Learning
@@ -333,12 +336,12 @@ programming [@bertsimasDatadrivenRobustOptimization2018] or neuro-dynamic progra
 [@bertsekasApproximateDynamicProgramming2008]. 
 
 Reinforcement learning (RL) is formalised as the optimal control problem of
-Markov decision processes (MDP) [@howardDynamicProgrammingMarkov1960]. A MDP is defined by
+Markov decision processes (MDP) [@howardDynamicProgrammingMarkov1960]. An MDP is defined by
 4-tuple $(S, A, P_a, R_a)$ where $S$ represents the state space, $A$ represents
 action space, $P_a(s, s') == \Pr(s_{t+1} = s'|s_t = s, a_t = a)$ is the
 transition function between two states given action and current state, $R_a(s,
 s')$ is a numerical reward signal for action $a$ when state transfers from $s$
-to $s'$. The optimisation objective is to maximize the except of accumulated
+to $s'$. The optimisation objective is to maximise the except of accumulated
 reward $E[\sum_{t=0}^\infty \gamma^t R_{a_t}(s_t, s_{t+1})]$. Under the
 Reinforcement learning literature, $P_a$ and $R_a$ are represented by the
 environment $E$. The agent is aiming to learn the policy $\pi: A \times S
@@ -355,10 +358,10 @@ enables the network to extract higher dimension feature. On contrast, "shallow"
 machine learning methods usually use relatively simple models
 [@liDeepReinforcementLearning2018]. 
 
-@schmidhuberDeepLearningNeural2014 briefly described several combination of RL and DL
+@schmidhuberDeepLearningNeural2014 briefly described several combinations of RL and DL
 with relative papers. Deep learning could be used in modelling environment,
 preprocessing RL input [@jodogneClosedLoopLearningVisual2007], modelling the value
-function of each state,  or generate policy [@suttonReinforcementLearningIntroduction1998].
+function of each state, or generate policy [@suttonReinforcementLearningIntroduction1998].
 Important algorithms in DRL include deep Q networks [@mnihAsynchronousMethodsDeep2016],
 policy gradients based methods [@suttonReinforcementLearningIntroduction1998,
 @schulmanProximalPolicyOptimization2017], Monte Carlo Tree Search
@@ -395,7 +398,7 @@ solution from a feasible but not optimal stage with several low-level
 heuristics. @chenLearningPerformLocal2019 trains a rule picker and a region picker
 separately, start from a feasible solution and then improve using trained rule
 and region picker to modify the solution. A similar method called Learn to
-Improve was purposed by @luLearningbasedIterativeMethod2019 , which also generate
+Improve was purposed by @luLearningbasedIterativeMethod2019, which also generate
 optimal solution by continuous improve a feasible solution. Such method
 outperforms LKH3 heuristics [@helsgaunExtensionLinKernighanHelsgaunTSP], which is the
 state-of-art solution of VRP.
@@ -420,14 +423,14 @@ search space. @haffariAnalysisSTAGEAlgorithm applied a TD-$\lambda$ based
 algorithm STAGE to learn the evaluation function to evaluate the quality of the
 initial state of local search and tested on bin packing problems. Similarly,
 @caiReinforcementLearningDriven2019 uses reinforcement learning to generate an initial
-solution for further heuristics optimisation. They also use the signal generated
+solution for further heuristics' optimisation. They also use the signal generated
 by heuristics to optimise the training of RL model.
 @silva-galvezDiscoveringActionRegions2020 split bin packing problems into action
 regions, and select suitable heuristics by a hyper-heuristic framework. Recent
 researches also showed with the development of RL, a single RL solution for BPP
 is possible. @balajiORLReinforcementLearning2019 purpose use Proximal Policy
 optimisation(PPO) to solve online stochastic optimisation problems, including
-BPP, VRP and newsvendor problem. 
+BPP, VRP and news vendor problem. 
 
 
 The methods on higher dimension BPP are mixed according to what kind of problem
@@ -449,9 +452,9 @@ assignment in Open-RAN networks.
 
 
 ## Automated Guided Vehicle(AGV) And Related Problems
-Automated Guided Vehicles (AGVs) are a class of mobile vehicles that guided by 
+Automated Guided Vehicles (AGV) are a class of mobile vehicles that guided by 
 physical guidance like magnetic tape or induction lines, radar or computer visual.
-AGVs is now heavily applied in modern industry and logistics field. 
+AGV is now heavily applied in modern industry and logistics field. 
 Researchers and industrial engineers focus on several practical problems, including:
 1) avoid accidents such as traffic jams and collisions, 2) optimise critical metrics such as travel time and 
 fuel cost.
@@ -469,25 +472,25 @@ Such methods usually lead to better solutions, but their optimality is not
 theoretically guaranteed. A range of mathematical planning-based algorithms, such as integer programming and mixed integer programming, 
 have been applied where a higher degree of optimality is required [@kasilingamMathematicalModelingAGVS1991]. These methods usually give optimal or near-optimal solutions for a given scenario, 
 but their modelling requires significant domain knowledge and expertise, and due to the NP-hard nature of the problem, the amount of computation required 
-increases dramatically when faced with a large number of AGVs or environmental variables. In recent years, with the development of machine learning and 
+increases dramatically when faced with many AGV or environmental variables. In recent years, with the development of machine learning and 
 reinforcement learning techniques, AGV dispatching algorithms have been combined with these techniques, such as @changAGVDispatchingAlgorithm2022 using deep Q-networks to overcome 
-the difficulties of mathematical modelling in complex production scenarios, and @liArtificialIntelligenceEmpowered2019 using machine learning methods to extrapolate the future tasks of the system in order to pre-dispatch AGVs.
+the difficulties of mathematical modelling in complex production scenarios, and @liArtificialIntelligenceEmpowered2019 using machine learning methods to extrapolate the future tasks of the system in order to pre-dispatch AGV.
 
 
 ### AGV Routing
 
-The AGV wayfinding problem is concerned with the decision to select the particular path that each vehicle needs to perform, 
+The AGV way finding problem is concerned with the decision to select the particular path that each vehicle needs to perform, 
 enabling it to complete its transport task. In particular, under certain conditions, researchers also consider the arrival and 
 departure times of vehicles along the route to prevent conflicts and even collisions of resources along the route [@coReviewResearchAGVS1991, @langevinDispatchingRoutingScheduling1996], a sub-problem 
-also known as the Scheduling of AGVs. Due to the similarity of the problems, AGV routing is often reduced to a Vehicle Routing Problem 
+also known as the Scheduling of AGV. Due to the similarity of the problems, AGV routing is often reduced to a Vehicle Routing Problem 
 (VRP). Considering the timeliness of the decision, the routing algorithm can be divided into static routing and dynamic routing. Static 
 routing does not change routes during algorithm execution, while dynamic routing will switch routes depending on the scenario. Dynamic 
-pathing often requires more powerful computational resources and sub-optimal algorithms to achieve real-time computation, while static 
-pathing has more abundant computational resources. On the other hand, static pathfinding is difficult to cope with unexpected scenarios, 
+routing often requires more powerful computational resources and suboptimal algorithms to achieve real-time computation, while static 
+routing has more abundant computational resources. On the other hand, static pathfinding is difficult to cope with unexpected scenarios, 
 especially if the AGV comes with functions such as obstacle avoidance, and is prone to problems such as deadlock. The classical AGV pathfinding 
-algorithm models the pathfinding task as a VRP problem with a time window, and the deadlock prevention of AGVs is achieved by limiting the node 
+algorithm models the pathfinding task as a VRP problem with a time window, and the deadlock prevention of AGV is achieved by limiting the node 
 occupation through the time window. The aforementioned heuristics, meta-heuristics, mathematical modelling algorithms and other methods have more 
 mature research results for VRP problems with time windows [@fisherVehicleRoutingTime1997, @solomonAlgorithmsVehicleRouting1987, @kolenVehicleRoutingTime1987, @ullrichIntegratedMachineScheduling2013]. 
-Considering the conflict scenario of AGVs, @mohringConflictfreeRealtimeAGV2005, @krishnamurthyDevelopingConflictFreeRoutes1993, and @huangLabelingAlgorithmNavigation1993 proposed a series of 
-heuristic pathfinding algorithms based on Dijkstra's shortest circuit. the study of the scheduling problem of AGVs is relatively independent, 
+Considering the conflict scenario of AGV, @mohringConflictfreeRealtimeAGV2005, @krishnamurthyDevelopingConflictFreeRoutes1993, and @huangLabelingAlgorithmNavigation1993 proposed a series of 
+heuristic pathfinding algorithms based on Dijkstra's shortest circuit. The study of the scheduling problem of AGV is relatively independent, 
 @hartmannGeneralFrameworkScheduling2005 proposed a framework for optimising terminal scheduling, @xiaobingApplicationAnalyticProcess1998 used resource analysis method to analyse the AGV scheduling problem.
