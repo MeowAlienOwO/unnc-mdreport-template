@@ -21,5 +21,3 @@ build:
   artifacts:
     paths:
       - ./build
-  tags:
-    - zhy-runner
