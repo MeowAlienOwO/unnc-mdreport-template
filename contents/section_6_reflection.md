@@ -43,5 +43,6 @@ switching racetrack.
 
 Appendix
 =====
+<!-- LTeX: enabled=false -->
 
 \includepdf[pages=-,pagecommand={},width=\textwidth]{../images/pattern_based_learning.pdf}

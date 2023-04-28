@@ -80,9 +80,30 @@ time point. Those temporary members and works done will be described in developm
 
 ## Port Operation Logic 
 
-A container port can be mainly 
+A maritime container port is the transhipment where containers exchanging between container vessel and land vehicles, or between container ships happens.
+A typical maritime container port is composed by three area: 
+1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
+place according to vessel plan. Quay cranes are applied here to transport containers between the stopped vessel and truck.
+2. **Yard**: Yard is the main area for container caching and exchanging. The whole yard area is divided into several yards with different usage. 
+Yard cranes and stackers works here to transport containers between yard and transportation trucks. Trucks carry the containers between yards and quay lines. Specifically, 
+some yards are used to store containers from external trucks.
+3. **External Truck Gate**: The place for check in or check out the external land trucks to allow the port receive and deliver containers with other land terminals.
 
+<!-- LTeX: enabled=false -->
+<!-- \begin{figure}[htbp]
+    \label{fig:plan-y2}
 
+    \centering
+    \includegraphics[]{../images/plany2.PNG}  
+    \caption{Gantt chart for Year 2}
+\end{figure} -->
+
+<!-- LTeX: enabled=true -->
+
+![Port operation logic graph\label{fig:operation_logic}](../images/Port-Operation-Logic.drawio.pdf) { width=50% }
+
+Figure~\ref{fig:operation_logic} displays a general workflow for the port. Once a vessel arrived, it will stop at a certain berth. Then all the load and unload container will be 
+executed by the quay cranes. For external trucks, they will be assigned to target yard. When the external truck stops at the yard, the yard crane will then execute the receiving or dispatch container work.
 ## NTSS System Architecture
 
 The project is aiming to satisfy the needs of port production environment. The feature includes ensuring the monitoring of port devices, analysing the real-time operation of the port, 

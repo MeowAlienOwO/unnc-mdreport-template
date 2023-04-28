@@ -95,7 +95,7 @@ follow the plan to pack the item by following procedure:
 
 1. Assign each bin with a pattern, i.e. consider a bin is "cut off" with several
    pieces that can exactly store one certain type.
-2. Once the item comes, find a empty piece of that type of item and put it into
+2. Once the item comes, find an empty piece of that type of item and put it into
    the bin.
 
 We use a state monitor to detect whether the plan should be changed. This usually
