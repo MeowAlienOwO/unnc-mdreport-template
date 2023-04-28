@@ -90,17 +90,17 @@ some yards are used to store containers from external trucks.
 3. **External Truck Gate**: The place for check in or check out the external land trucks to allow the port receive and deliver containers with other land terminals.
 
 <!-- LTeX: enabled=false -->
-<!-- \begin{figure}[htbp]
-    \label{fig:plan-y2}
+\begin{figure}[htbp]
+    \label{fig:operation_logic}
 
     \centering
-    \includegraphics[]{../images/plany2.PNG}  
-    \caption{Gantt chart for Year 2}
-\end{figure} -->
+    \includegraphics[]{../images/Port-Operation-Logic.drawio.pdf}  
+    \caption{Brief logic relation graph for typical maritime container port}
+\end{figure}
 
 <!-- LTeX: enabled=true -->
 
-![Port operation logic graph\label{fig:operation_logic}](../images/Port-Operation-Logic.drawio.pdf) { width=50% }
+<!-- [Port operation logic graph\label{fig:operation_logic}](../images/Port-Operation-Logic.drawio.pdf) { width=50% } -->
 
 Figure~\ref{fig:operation_logic} displays a general workflow for the port. Once a vessel arrived, it will stop at a certain berth. Then all the load and unload container will be 
 executed by the quay cranes. For external trucks, they will be assigned to target yard. When the external truck stops at the yard, the yard crane will then execute the receiving or dispatch container work.
