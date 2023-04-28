@@ -32,7 +32,7 @@ fi
 pandoc --natbib \
     --wrap=none \
     -L $FILTERS_DIR/centerimgs.lua \
-    -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers+pipe_tables+simple_tables+markdown-implicit_figures \
+    -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers+pipe_tables+simple_tables \
     -o $MARKDOWN_INPUT \
     $MARKDOWNS
 
