@@ -78,7 +78,7 @@ time point. Those temporary members and works done will be described in developm
 
 
 
-## Port Operation Logic 
+## CMICT Port Operation Logic 
 
 A maritime container port is the transhipment where containers exchanging between container vessel and land vehicles, or between container ships happens.
 A typical maritime container port is composed by three area: 
@@ -102,8 +102,32 @@ some yards are used to store containers from external trucks.
 
 <!-- [Port operation logic graph\label{fig:operation_logic}](../images/Port-Operation-Logic.drawio.pdf) { width=50% } -->
 
-Figure~\ref{fig:operation_logic} displays a general workflow for the port. Once a vessel arrived, it will stop at a certain berth. Then all the load and unload container will be 
-executed by the quay cranes. For external trucks, they will be assigned to target yard. When the external truck stops at the yard, the yard crane will then execute the receiving or dispatch container work.
+Figure~\ref{fig:operation_logic} displays a general workflow for the port. 
+Once a vessel arrived, it will stop at a certain berth. Then all the load and unload container will be 
+executed by the quay cranes. 
+A fleet of internal trucks are used to transport containers between quay crane and yards.
+For external trucks, they will be assigned to target yard. 
+When the external truck stops at the yard, the yard crane will then lift the import container from external truck to yard,
+or put the export container onto external truck. 
+The container inside port could be reallocated due to plan changing, efficiency concern, or special issues. These works will be executed by internal trucks and yard cranes.
+
+In CMICT, the operation logic is mainly same as a maritime container port. However, trivial special cases or logics exists at execution level, which makes the final logic highly complex. Additionally, the data barrier between different data source also composed the complexity. The detailed behaviour will be discussed below.
+
+
+### Data Overview
+
+
+
+### Vessel and Quay Crane
+
+### External Trucks
+
+### Yard and Internal Trucks
+
+
+
+
+
 ## NTSS System Architecture
 
 The project is aiming to satisfy the needs of port production environment. The feature includes ensuring the monitoring of port devices, analysing the real-time operation of the port, 
