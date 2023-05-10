@@ -100,7 +100,9 @@ the container in the yards will be reallocated due to efficiency issue. Such tas
 ### Physical Port Area
 
 CMICT has total 1.657 million square meters area with four deep water berths. The quay line is 1500 meters long with 17.5 meters water depth.
-Figure~\ref{fig:port_area} represents a top-down view of the port area.
+<!-- Figure~\ref{fig:port_area}  -->
+[Figure @fig:port_area]
+represents a top-down view of the port area.
 The port area can be briefly divided into four parts:
 
 1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
@@ -120,6 +122,8 @@ yard to load or unload containers.
 
 4.  **Administration Area**: The administration area is located at the bottom of the whole port area. It contains the administration building for the whole port,
 the customhouse, and container freight station. The project does not involve this area much because it does not have much influence on the whole container transportation flow.
+
+![CMICT Port Area](../images/PortArea.pdf){#fig:port_area}
 
 <!-- LTeX: enabled=false -->
 \begin{figure}[htbp]
