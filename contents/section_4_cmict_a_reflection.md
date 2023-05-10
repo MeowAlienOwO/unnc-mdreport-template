@@ -21,8 +21,6 @@ in future.
 
 ## Project Introduction
 
-
-
 <!-- This section will briefly introduce the project. -->
 
 ### Ningbo Daxie China Merchants International Container Terminal(CMICT)
@@ -76,59 +74,99 @@ input and output format is defined. This work is mainly taken by Jin Chenwei whi
 Apart from the major member, the team involved several temporary members at some special 
 time point. Those temporary members and works done will be described in development procedure.
 
+## CMICT Port Operation Logic
 
-
-## CMICT Port Operation Logic 
-
+Despite different type of ports exists in Ningbo, CMICT is a typical maritime container port.
 A maritime container port is the transhipment where containers exchanging between container vessel and land vehicles, or between container ships happens.
-A typical maritime container port is composed by three area: 
-1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
-place according to vessel plan. Quay cranes are applied here to transport containers between the stopped vessel and truck.
-2. **Yard**: Yard is the main area for container caching and exchanging. The whole yard area is divided into several yards with different usage. 
-Yard cranes and stackers works here to transport containers between yard and transportation trucks. Trucks carry the containers between yards and quay lines. Specifically, 
-some yards are used to store containers from external trucks.
-3. **External Truck Gate**: The place for check in or check out the external land trucks to allow the port receive and deliver containers with other land terminals.
+As one of the most important global supply chain gateways, CMICT receives cargo from international container vessels, and dispatch them to domestic 
+receivers. Besides, it also provides other derived functions such as container storage and domestic container transportation. 
+
+Figure~\ref{fig:operation_model} briefly represents how a common container port works. 
+Once a vessel arrived, it will stop at a certain berth. The quay cranes will lift the containers from the vessel then put onto an internal truck, or vice versa.
+The internal trucks will carry the container between quay cranes and yards. In the yard, a yard crane will transfer the container between 
+the yard and trucks. External trucks will also transfer containers between the yard after check in at the container gate. Specifically, 
+the container in the yards will be reallocated due to efficiency issue. Such tasks will be executed by yard cranes and internal trucks.
+
 
 <!-- LTeX: enabled=false -->
 \begin{figure}[htbp]
-    \label{fig:operation_logic}
-
+    \label{fig:operation_model}
     \centering
-    \includegraphics[]{../images/Port-Operation-Logic.drawio.pdf}  
-    \caption{Brief logic relation graph for typical maritime container port}
+    \includegraphics[]{../images/Port-Operation-Logic-SimpleLogic.pdf}
+    \caption{Maritime Container Port Operation Model}
 \end{figure}
+<!-- LTeX: enabled=true -->
+
+### Physical Port Area
+
+CMICT has total 1.657 million square meters area with four deep water berths. The quay line is 1500 meters long with 17.5 meters water depth.
+Figure~\ref{fig:port_area} represents a top-down view of the port area.
+The port area can be briefly divided into four parts:
+
+1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
+place according to vessel plan. The quay cranes are located at the quay line, execute container transportation
+between container vessels and internal trucks. The quay lines are connected to the yard by six bridges.
+
+2. **Yard**: Yard area stores containers for further dispatching. The yard is divided by vertical and horizontal roads which allow trucks to move. The
+blocks which store containers are the areas surrounded by roads. 
+The yard blocks have three types: the normal blocks, dangerous container blocks and empty container boards. A normal block is the yard that stores both
+empty container and full container, which is located at the centre of yard area with standard layout. An empty container block stores empty containers only.
+They have non-standard layout, located at the surrounding of normal block area. The dangerous container area stores cargos that could cause potential 
+danger if not stored properly.
+
+3. **External Truck Gateway**: The external truck gateway is located at the bottom right of the yard area. It contains two parts: the truck gateway, and a parking area for external trucks.
+Once an external truck arrived, it will firstly be checked in by the gateway, then go to the park until working tasks are assigned. The external truck will then go to target 
+yard to load or unload containers. 
+
+4.  **Administration Area**: The administration area is located at the bottom of the whole port area. It contains the administration building for the whole port,
+the customhouse, and container freight station. The project does not involve this area much because it does not have much influence on the whole container transportation flow.
+
+<!-- LTeX: enabled=false -->
+\begin{figure}[htbp]
+    \label{fig:port_area}
+    \centering
+    \includegraphics[]{../images/PortArea.pdf}
+    \caption{CMICT Port Area}
+\end{figure}
+
 
 <!-- LTeX: enabled=true -->
 
-<!-- [Port operation logic graph\label{fig:operation_logic}](../images/Port-Operation-Logic.drawio.pdf) { width=50% } -->
+### Container Transportation Equipments
 
-Figure~\ref{fig:operation_logic} displays a general workflow for the port. 
-Once a vessel arrived, it will stop at a certain berth. Then all the load and unload container will be 
-executed by the quay cranes. 
-A fleet of internal trucks are used to transport containers between quay crane and yards.
-For external trucks, they will be assigned to target yard. 
-When the external truck stops at the yard, the yard crane will then lift the import container from external truck to yard,
-or put the export container onto external truck. 
-The container inside port could be reallocated due to plan changing, efficiency concern, or special issues. These works will be executed by internal trucks and yard cranes.
+Container transportation equipments are devices that executing the container transportation tasks. The container transportation task is the minimal unit in the whole port execution.
+An ordinary container transportation task can be described by six elements: the container unique ID; the source and target position of the container; lifting, carrying, and putting device.
+When executing an ordinary container transportation task, the container will be moved from source position to target position. The lifting device will put the container onto the carrying truck. Once the truck arrived, the 
+container will be unloaded and put to target position by putting device. The start and end time of lifting, carrying and putting will be tracked and recorded. The whole 
+task will not be considered as finished until the putting section ends. All devices involved in the container tasks are called container transportation equipments (CHE).
+Specifically, although not owned by the port, we will include container vessels and external trucks in the discussion. There are mainly four kinds of container transportation
+equipments:
 
-In CMICT, the operation logic is mainly same as a maritime container port. However, trivial special cases or logics exists at execution level, which makes the final logic highly complex. Additionally, the data barrier between different data source also composed the complexity. The detailed behaviour will be discussed below.
+- **Vessel and Quay Cranes**. When the berth is stopped at the berth assigned, it will not move until all tasks finished. Then several quay cranes will be assigned to the vessel.
+The unloading tasks will be executed first. When an internal truck arrived, the quay crane will lift the container from the vessel, put it onto the 
+truck. Then the truck will carry the container to target yard, and the quay crane will serve for the next truck. Similarly, when executing loading task,
+the quay crane will lift the container from truck to vessel. Apart from loading and unloading containers, the quay crane also executes some assistant tasks, which
+will be counted while calculating quay crane efficiency. There are some extra rules for quay cranes. First, the quay crane is ordered, and they can not be assigned
+across the berth because the size of quay crane is too large to exchange location. Second, to balance the efficiency, the quay crane can be reassigned to the berth
+next to the current working berth. CMICT has a 1.5 km quay line with and 18 quay cranes currently.
+
+- **Yard Cranes and Stackers**. The yard cranes are used to lift and put containers. 
+It is possible that one yard is assigned with multiple yard cranes, and one yard crane is shared by multiple yards.  
+For efficiency purpose, the container will be reallocated within or between yards. The reallocation works within yard are executed by yard cranes by simply lifting
+the container and putting to target location. If the container will be moved to another yard according to plan, an internal truck will be used to carry the container.
+In CMICT, apart from standard yard crane, several stackers are also used similarly as yard cranes but only for empty containers. Besides, some of them are remotely controlled by the operators.
+
+- **Internal Trucks**. The internal trucks are trucks that carry containers within the port. Their movements are strictly controlled by the port traffic rules, like the speed limitation.
+When a task is assigned, the truck will first go to the lift position, wait the container to be putted on the trailer and move to the target position. When the truck
+arrived at target position, it will also wait until the container is finally located at target position. In CMICT, some AGVs are also used as internal trucks.
+
+- **External Trucks**. External trucks are trucks that imports and exports containers between port and other land logistic nodes. Despite some special case, an external truck 
+carries a 40-inch standard container or two 20-inch standard containers. When an external truck come to the port, it will first check in at 
+the gate, then go to target yard to unload or load containers. It is possible that one external truck involves both import and export tasks,
+and involves multiple containers. When multiple tasks involved, the truck will not leave the port until all tasks finished. 
 
 
-### Data Overview
-
-
-
-### Vessel and Quay Crane
-
-### External Trucks
-
-### Yard and Internal Trucks
-
-
-
-
-
-## NTSS System Architecture
+## Nottingham Terminal Surveillance Suite
 
 The project is aiming to satisfy the needs of port production environment. The feature includes ensuring the monitoring of port devices, analysing the real-time operation of the port, 
 illustrate the operational indicators of the port. On the other hand, the existence of barrier between different digital sub-system in the port prevents the integration of sub-system, 
@@ -144,7 +182,6 @@ The rest of this section will discuss and analysis the detailed design of each m
 
 ### Backend
 
-
 <!-- overview -->
 
 
@@ -155,6 +192,8 @@ The rest of this section will discuss and analysis the detailed design of each m
 ### Frontend 
 
 ### Simulation
+
+
 
 ## Development Procedure
 
