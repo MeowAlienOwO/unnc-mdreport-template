@@ -83,6 +83,7 @@ As one of the most important global supply chain gateways, CMICT receives cargo 
 receivers. Besides, it also provides other derived functions such as container storage and domestic container transportation. 
 
 ![Maritime Container Port Operation Model](../images/Port-Operation-Logic-SimpleLogic.pdf){#fig:operation_model}
+
 [Figure @fig:operation_model] briefly represents how a common container port works. 
 Once a vessel arrived, it will stop at a certain berth. The quay cranes will lift the containers from the vessel then put onto an internal truck, or vice versa.
 The internal trucks will carry the container between quay cranes and yards. In the yard, a yard crane will transfer the container between 
@@ -105,6 +106,7 @@ the container in the yards will be reallocated due to efficiency issue. Such tas
 ### Physical Port Area
 
 ![CMICT Port Area](../images/PortArea.png){#fig:port_area}
+
 CMICT has total 1.657 million square meters area with four deep water berths. The quay line is 1500 meters long with 17.5 meters water depth.
 [Figure @fig:port_area] represents a top-down view of the port area. The port area can be briefly divided into four parts:
 <!-- Figure~\ref{fig:port_area}  -->
