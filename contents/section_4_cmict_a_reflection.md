@@ -35,6 +35,7 @@ in-terminal trucks, are tracked and managed by terminal operating system (TOS). 
 help manage the port, including computer vision based intelligence cargo system, non-contact social truck gate tracking system, etc.  
 The terminal is now seeking for cooperators that could help build intelligent terminal to improve the whole efficiency.
 
+![CMICT Overview](../images/cmict_layout.jpg){#fig:cmict_layout}
 
 ### Data Monitoring Dashboard and Discrete Event Simulation
 
@@ -81,29 +82,32 @@ A maritime container port is the transhipment where containers exchanging betwee
 As one of the most important global supply chain gateways, CMICT receives cargo from international container vessels, and dispatch them to domestic 
 receivers. Besides, it also provides other derived functions such as container storage and domestic container transportation. 
 
-Figure~\ref{fig:operation_model} briefly represents how a common container port works. 
+![Maritime Container Port Operation Model](../images/Port-Operation-Logic-SimpleLogic.pdf){#fig:operation_model}
+[Figure @fig:operation_model] briefly represents how a common container port works. 
 Once a vessel arrived, it will stop at a certain berth. The quay cranes will lift the containers from the vessel then put onto an internal truck, or vice versa.
 The internal trucks will carry the container between quay cranes and yards. In the yard, a yard crane will transfer the container between 
 the yard and trucks. External trucks will also transfer containers between the yard after check in at the container gate. Specifically, 
 the container in the yards will be reallocated due to efficiency issue. Such tasks will be executed by yard cranes and internal trucks.
 
 
+
 <!-- LTeX: enabled=false -->
-\begin{figure}[htbp]
-    \label{fig:operation_model}
-    \centering
-    \includegraphics[]{../images/Port-Operation-Logic-SimpleLogic.pdf}
-    \caption{Maritime Container Port Operation Model}
-\end{figure}
+<!-- \begin{figure}[htbp]
+
+\hypertarget{fig:operation_model}{%
+\centering
+\hfill\break{\centering\includegraphics{../images/Port-Operation-Logic-SimpleLogic.pdf}}
+\caption{Maritime Container Port Operation Model}\label{fig:operation_model}
+}
+\end{figure} -->
 <!-- LTeX: enabled=true -->
 
 ### Physical Port Area
 
+![CMICT Port Area](../images/PortArea.png){#fig:port_area}
 CMICT has total 1.657 million square meters area with four deep water berths. The quay line is 1500 meters long with 17.5 meters water depth.
+[Figure @fig:port_area] represents a top-down view of the port area. The port area can be briefly divided into four parts:
 <!-- Figure~\ref{fig:port_area}  -->
-[Figure @fig:port_area]
-represents a top-down view of the port area.
-The port area can be briefly divided into four parts:
 
 1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
 place according to vessel plan. The quay cranes are located at the quay line, execute container transportation
@@ -123,7 +127,6 @@ yard to load or unload containers.
 4.  **Administration Area**: The administration area is located at the bottom of the whole port area. It contains the administration building for the whole port,
 the customhouse, and container freight station. The project does not involve this area much because it does not have much influence on the whole container transportation flow.
 
-![CMICT Port Area](../images/PortArea.pdf){#fig:port_area}
 
 <!-- LTeX: enabled=false -->
 <!-- \begin{figure}[htbp]
@@ -170,7 +173,7 @@ the gate, then go to target yard to unload or load containers. It is possible th
 and involves multiple containers. When multiple tasks involved, the truck will not leave the port until all tasks finished. 
 
 
-## Nottingham Terminal Surveillance Suite
+## Nottingham Terminal Surveillance Suite(NTSS)
 
 The project is aiming to satisfy the needs of port production environment. The feature includes ensuring the monitoring of port devices, analysing the real-time operation of the port, 
 illustrate the operational indicators of the port. On the other hand, the existence of barrier between different digital sub-system in the port prevents the integration of sub-system, 
@@ -180,11 +183,18 @@ to provide a holistic view for port operation and decision-making.
 Based on the requirement, we design the system to be a Browser-Server architecture. A web browser based frontend is used to provide an aerial view of the port with real-time device position,
 work status, and necessary configure operation. A backend server reads data from sub-system in CMICT, calculates necessary measure and prepare terminal snapshot for the browser and 
 simulation. A stand-alone Anylogic simulation model is developed to make prediction of future terminal status. The input, output and execution of simulation model is controlled by backend
-for automatic prediction.  
+for automatic prediction.
 
 The rest of this section will discuss and analysis the detailed design of each module. 
 
 ### Backend
+
+The main function of backend is to synchronize data between three CMICT systems, analyse them and provide data pack for frontend display.
+Besides, the backend also provide a set of basis system management functions including user management, configuration, and planning. [Figure @fig:backend_structure]
+represents the data interaction between the NTSS system and external systems.
+
+![NTSS Backend Interaction Relations](../images/BackendStructure.pdf){#fig:backend_structure}
+
 
 <!-- overview -->
 

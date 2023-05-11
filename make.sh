@@ -31,7 +31,7 @@ fi
 
 pandoc --natbib \
     --wrap=none \
-    -L $FILTERS_DIR/centerimgs.lua \
+    # -L $FILTERS_DIR/centerimgs.lua \
     -F pandoc-crossref \
     -f markdown+smart+autolink_bare_uris+table_captions+auto_identifiers+pipe_tables+simple_tables \
     --citeproc \
