@@ -126,12 +126,12 @@ the customhouse, and container freight station. The project does not involve thi
 ![CMICT Port Area](../images/PortArea.pdf){#fig:port_area}
 
 <!-- LTeX: enabled=false -->
-\begin{figure}[htbp]
+<!-- \begin{figure}[htbp]
     \label{fig:port_area}
     \centering
     \includegraphics[]{../images/PortArea.pdf}
     \caption{CMICT Port Area}
-\end{figure}
+\end{figure} -->
 
 
 <!-- LTeX: enabled=true -->
