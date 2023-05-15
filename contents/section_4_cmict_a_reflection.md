@@ -193,24 +193,66 @@ The rest of this section will discuss and analysis the detailed design of each m
 
 The main function of backend is to synchronize data between three CMICT systems, analyse them and provide data pack for frontend display.
 Besides, the backend also provide a set of basis system management functions including user management, configuration, and planning. [Figure @fig:backend_structure]
-represents the data interaction between the NTSS system and external systems.
+represents the data interaction between the NTSS system and external systems. 
+NTSS Backend grabs data from CMICT data source, transform them to standard data formulation, and then store them in NTSS internal storage.
+The core data structure is the terminal snapshot, which stores all terminal status at a certain time. 
+The analyser will read stored data from internal storage, analyse them and generate terminal snapshot.
+The terminal snapshot is then be transformed to frontend-friendly data pack and send to frontend to display by the 
+API controller. Since the simulation system also need to initialise system with terminal status, the terminal snapshot is also 
+provided and transformed for simulation.
 
-![NTSS Backend Interaction Relations](../images/BackendStructure.pdf){#fig:backend_structure}
+![NTSS Backend Interaction Relations](../images/BackendStructure-SystemStructure.pdf){#fig:backend_structure}
 
+[Figure @fig:backend_module_arch] represents a brief architecture of NTSS backend. The dot-dashed part represents external systems and dashed rectangles represent
+different layers in NTSS backend. Cylinders represent data storage including database or data file, and trapezoids represent data model for internal storage or 
+data transfer.
 
-<!-- overview -->
+CMICT provided four heterogeneous data source which are all used by the 
+NTSS, including different database access, third-party API and development kit, which increased the difficulty of data loading. 
+The TOS database stores the operation data for the whole port in an Oracle database. The CTISTS database stores the data in 
+intelligence tally system in a separate Microsoft SQL Server database in addition. The two database are connected while port operating, but the logic
+is not shown clearly to our development team. The position API is developed by third-party system developer with a Websocket
+publish service. Finally, the surveillance video is provided by HikVision system whose access is provided through HikVision Development Kit.
 
+To implement basic reading and data unification, the data provider layer is designed. In NTSS, we define data transfer objects(DTOs) as a set of object definition 
+independent of data definition provided by data source. Therefore, the synchronisation, analysis and data transformation are able to perform based on 
+the unified DTOs regardless of difference provided by data source.
+A data provider is associated with a certain data source, implementing the data access function and transforming original data to DTOs.
+Specifically, the data access and data manipulation is executed through a specific core provider, which associates with NTSS internal database and
+implements create, update, delete, search operations for DTOs. It will also analyse the status of port, provide simulation initial status for simulation 
+and port snapshot for NTSS frontend.
 
-<!-- Techinque stack -->
+ <!-- The mapped DTOs are then synchronised with internal storage with data loaders. -->
+To ensure the usability of backend system, the NTSS backend is designed to be microservice architecture. 
+By definition of microservice, the services plays role to run a set of specific commands which does not share same 
+program context. Therefore, if any service is broken, it will not affect the execution of other services.
+In NTSS context, these services belongs to service layer, including web service, data loaders and simulation executor.
+Web service is the core service of NTSS backend, it provides port snapshot data packs to fronted, and interacts 
+with user through web APIs.
+Three loaders are responsible to monitor the change of data sources and synchronise them with internal storage.
+The simulation executor initialise the simulation state, execute simulation with given configuration set and store the 
+result for frontend feedback.
+NTSS specific data storage. Therefore, if any synchronisation service is broken, the web service can still provide data to frontend using 
+synchronised data in individual storage. The web service is the core service that provides the port snapshot to frontend and interact with user. 
+Additionally, since the surveillance data are provided by HikVision, it is processed separately with HikVision surveillance SDK.
 
-<!--  -->
+![NTSS Backend Interaction Relations](../images/BackendStructure-ModuleArchitecture.pdf){#fig:backend_module_arch}
+
+Vertically, this architecture decouples the association between analysis logic and original data representation. The NTSS backend is 
+therefore able to break the data barrier between the CMICT data sources. Horizontally, different data source are treated differently to 
+make the system able to extend in future. The usability of web API is also ensured by the microservice architecture. Plus, the separation
+of each service make it possible to reduce the risk of whole synchronisation broken by a sub-system problem like network error, etc.
+Overall, NTSS backend provides the required functions, with usability and future extension considered.
+
 
 ### Frontend 
 
+
+
 ### Simulation
 
-
-
+![Simulation Flowchart](../images/simulation-procedure.drawio.svg){#fig:simulation}
+<!-- 
 ## Development Procedure
 
 ### Requirement Stage
@@ -227,6 +269,14 @@ represents the data interaction between the NTSS system and external systems.
 #### Simulation Development
 
 
-#### Refactor New Version
+#### Refactor New Version -->
 
 ## Reflection
+
+
+### Physical Factors
+
+### Development
+
+### Human Factors
+
