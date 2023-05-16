@@ -199,7 +199,11 @@ The core data structure is the terminal snapshot, which stores all terminal stat
 The analyser will read stored data from internal storage, analyse them and generate terminal snapshot.
 The terminal snapshot is then be transformed to frontend-friendly data pack and send to frontend to display by the 
 API controller. Since the simulation system also need to initialise system with terminal status, the terminal snapshot is also 
-provided and transformed for simulation.
+provided and transformed for simulation. 
+
+NTSS backend is based on Microsoft Entity Framework Core 7.0, with a SQL Server database. 
+These development choices are made mainly for the development team is familiar with this technique stack.
+Other components like HikVision development kit and LDAP library, are introduced for specific feature requirements.
 
 ![NTSS Backend Interaction Relations](../images/BackendStructure-SystemStructure.pdf){#fig:backend_structure}
 
@@ -245,13 +249,80 @@ of each service make it possible to reduce the risk of whole synchronisation bro
 Overall, NTSS backend provides the required functions, with usability and future extension considered.
 
 
-### Frontend 
+### Frontend Client
 
 
+The major function of frontend is to display the real-time port status to the user. Apart from that, the frontend also 
+provide interaction pages for system setting, user authentication, surveillance video entry, simulation result and other assistant functions.
+The frontend architecture is designed to be three layers as shown in [@fig:frontend]. The frontend also uses the React framework 
+for fast development and three.js for rendering the port objects.
+
+The NTSS frontend client has three layers: the API layer, the store layer and web page layer. The API layer takes over 
+requests and responses between the frontend client and backend. The functions are grouped by module to match the backend API set.
+To persist critical data, including the status of authentication and port snapshot, a store layer is designed. The authentication
+data is stored to ensure the client is at login status until user log out. The port snapshot is stored and updated based on regular 
+time period, to update the page representation. Additionally, some frontend specific data is calculated and stored by the store layer.
+Apart from the store layer, some API directly forward the data to the page level since these data are not as complex as port snapshot, or does not 
+require persistent storage. Finally, there is a web page layer that implements the direct interaction page with user. The monitor page renders the position
+of devices and vessels in the port and displays related statistic information. The simulation and surveillance directly displays related information 
+to the user. Counterintuitively, those two pages simply represents the data by backend without much processing, for the related data structure or
+media can be easily handled by the browser. The authentication page and setting page implement management features for the whole NTSS system 
+by interacting with backend interfaces.
+
+![NTSS Frontend Client Structure](../images/FrontendStructure.pdf){#fig:frontend}
+
+
+[Figure @fig:frontend_screenshot] represents the core port monitor page. 
+On the top-right, there is a button to switch between real-time and history mode. 
+The top-left part controls the main view, including full-screen switch and device filter. 
+The page switch buttons are placed on the left panel. The rest part represents the monitor 
+body. The port overview represents a scaled port with the quay line on the top horizontally.
+The vessel and devices are located according to position data from backend, which is part of the snapshot.
+The legend of device representation and status are located at bottom of the screen.
+The bottom-right part represents the efficiency and tendency of current work group, and devices count at different status.
+During the system running, the frontend will continuously request a full snapshot to represent real-time port status to backend after a certain synchronisation period.
+The new snapshot will then be merged to the stored snapshot, and be rendered to the page. 
+On the other hand, since the data definition of port snapshot is same, the monitor page 
+can render the port status at any time as long as the backend is able to provide snapshot.
+
+![Frontend Screenshot](../images//FrontendScreenshot.png){#fig:frontend_screenshot}
 
 ### Simulation
 
-![Simulation Flowchart](../images/simulation-procedure.drawio.svg){#fig:simulation}
+Although port simulation itself is a big research topic, in current stage of NTSS, the role of port simulation is simple:
+to provide a near-future port efficiency prediction. Consider the nature of port operation, the simulation is a discrete 
+event simulation based on AnyLogic. 
+
+The interaction of simulation and other modules is simple.
+The simulation reads the initial state and configuration from NTSS backend, and exports the simulation results. Both input
+and output are in JSON format for reducing development complexity. The starting and ending of simulation is monitored by the NTSS backend service.
+The result will finally be sent to frontend to represent the result.
+
+The simulation focus on the scheduling problems in the port. 
+[Figure @fig:simulation] represents the simulation workflow. 
+The simulation will first initialise the device position, container position and planned tasks. The containers will then be 
+reallocated according to reallocation plan from the plan list. Then, three steps are executed in parallel, including quay line tasks,
+external truck tasks and yard adjust tasks. When any vessel arrived, it will first be assigned
+with several quay cranes according to quay crane assignment strategy. After which, a series of load and unload tasks are assigned and scheduled with 
+quay crane scheduling strategy. The system will then try to find free internal trucks, and assign truck tasks to carry the container 
+to target location. Such carry tasks will be generated and assigned by the truck task assignment strategy. At the yard side, the simulation 
+is executed according to container rehandling and yard crane scheduling strategy. For external trucks, the arrival of trucks not in port is 
+simulated by a learned probability model. When one external truck arrived,
+the container import tasks will be executed first and then export tasks, if any.
+Specifically, when it is non-peak period or necessary, a small yard reallocation procedure is involved to improve efficiency.
+
+
+![Simulation Flowchart](../images/Simulation-Procedure.png){#fig:simulation}
+
+
+As shown in [Figure @fig:simulation_result], the export result contains efficiency of yard and each vessel. 
+The yard efficiency involves average efficiency for each type of device in the yard, and waiting times.
+For each vessel, the average efficiency of quay cranes and waiting times are considered.
+
+
+![Simulation Result](../images/SimulationResult.png){#fig:simulation_result}
+
+
 <!-- 
 ## Development Procedure
 
