@@ -36,3 +36,4 @@ HikVision
 DTO
 DTOs
 AnyLogic
+ChatGPT

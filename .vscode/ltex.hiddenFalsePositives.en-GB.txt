@@ -1,0 +1,1 @@
+{"rule":"WANT_TO_NN","sentence":"^\\QAs described before, the project manager is the one who should write the requirement document, because he needs to analysis the requirement, .\\E$"}

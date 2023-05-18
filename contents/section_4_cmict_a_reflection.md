@@ -323,31 +323,176 @@ For each vessel, the average efficiency of quay cranes and waiting times are con
 ![Simulation Result](../images/SimulationResult.png){#fig:simulation_result}
 
 
-<!-- 
-## Development Procedure
-
-### Requirement Stage
-
-
-### Design Stage
-
-
-### Development Stage
-
-#### Monitoring Development
-
-
-#### Simulation Development
-
-
-#### Refactor New Version -->
-
 ## Reflection
 
 
-### Physical Factors
+By the time of report writing, the project is at the User Acceptance Test stage. The system is connected to 
+the production database, and the correctness of analysis is tested. 
+So far, NTSS has implemented major features with required system performance, but there are still some inconsistency of 
+data display or efficiency calculation. 
+The volume and workload of NTSS is far beyond
+the exception. For example, although not finalized, the NTSS backend has over 58000 lines of code, the frontend has over 40000 lines of code.
+The whole development period lasts over one year, at least is twice than expected. The delay is mainly due to  
+several shutdowns caused by COVID, and lacking of business level development experience. 
+In this section, the development procedure will be introduced, and analysed from three aspects: the external factors,
+software engineering principles and human factors.
 
-### Development
+
+### Development Procedure
+
+At the beginning of development, the development period was designed to be 4-5 months, which involves 1 week requirement and set up, 
+9 weeks of development and 2 weeks of testing. The development started from February 21st 2022, the first several weeks went smoothly.
+However, at April, the university was shutdown due to COVID, which stops the face-to-face communication between the develop team and 
+CMICT. Moreover, in this period, CMICT does not provide the access of test database due to data access control reasons. These two factors heavily delayed the development progress
+and also reduce the quality of software, for the development team can not get on time feedback from CMICT. We would like to highlight the 
+accessibility issue of the data: at that stage, the development team have nearly zero knowledge on the port data source, except several documents
+describing the database table names and related fields. The inaccessibility of database results two factors: first, an extra test database is established,
+second, the development database for the development is inconsistent with the target data source. 
+
+The second development stage was from mid-May till first week of August, several data access is provided in this stage, so the development was pushed forward quickly.
+The VPN access and TOS test database access was provided in mid-May, then CTISTS (intelligent tally system) test database and surveillance API access was provided in mid-June. The position 
+API was not finished developing at this stage. At the beginning of this project, CMICT was promised to provide a set of data source as API form with efficiency calculation
+for the NTSS, but in this stage, the data source is finalised as database access. This change actually shifts the responsibility of ensuring data correctness from CMICT to our development 
+team.  The development team was focused on the development document writing, 
+mainly the requirement document at the window period before the data access is approved by CMICT. 
+By the end of May, an early version of requirement document is finished. 
+In this stage, CMICT requires the document and prototype for inner evaluation. Therefore, the development plan is rearranged to achieve a prototype version at the end of July.
+In this period, the system architecture has changed because of the size of TOS data: it contains over 10 years execution records, the original design is not able
+to implement required features satisfying the performance requirement. Also, the simulation module is developed independently to verify the simulation logic.
+The development team submit the document set and software delivery including both frontend and backend at this stage. 
+Unfortunately, both document and software delivery was received negative feedback. 
+
+The third development stage started from mid-August to end of October. 
+This stage focused on connection from backend, and implement interface between backend and simulation. 
+The university controlled the returning to campus strictly due to COVID situation and government policy, this also increased difficulty of
+communication. Due to the previous stage low quality of documents and exchange of team member, in this stage not much document works are involved.
+In this stage, the production data source read access was provided to verify the data in real time,
+the production position API is also implemented in this stage.
+The critical difficulty in this stage is the frequent changing data, and the data volume in production environment. 
+The position data can have over 100,000 lines per day, which causes heavy storage space and search computability. 
+Furthermore, the third party position API is not stable, therefore the whole system is under high risk of suddenly shutdown or slow response.
+The CTISTS production database is also not consistent with test database. This inconsistency also caused a nearly whole re-write of logic.
+By the end of this stage, the system design had been changed several times, which causes any alter of logic or bug fix become very slow. The major features are
+implemented, but the system performance and stability are big issues.
+
+The third development stage started from November till early March 2023. In this stage, the team decided to refactor the system to be microservice and unify the 
+backend-frontend request to be a single snapshot object. At this time, the university faced another shutdown in the end of November, and the pandemic situation
+leaded to group isolation and early end of autumn semester. Fortunately, the isolation and early stop of semester brings more flexibility of pushing forward the 
+project. Although most of the team member suffered from COVID heavily, a fully rewrote version was able to finish before the spring festival. This version implemented
+the NTSS architecture, with improved stability and extendability than the old version. 
+After spring festival, the team worked on finishing some support features and document writing to summarise the project. 
+
+The final stage started from March till now. This stage the team focused on pushing the system to the final state. The major part of this stage is in-team testing and 
+CMICT verification. Comparing with the 2-week testing period in the original plan, the actual testing time is surprisingly caused nearly 2 months. During this stage,
+over 200 issues, including frontend, backend and simulation issues are fixed. These issues include data inconsistency, specific data handling, efficiency calculation issues, frontend display issues
+and other stuff are solved. Over 15000 lines of code is added to fix the issues. This stage is also actually the team started to follow a certain software engineering workflow,
+ which obviously improved the efficiency of teamwork. 
+
+
+### External Factors
+
+To summarise our development procedure, two critical factors heavily affects the development workload and time cost. Firstly, there are two shutdowns 
+and several entrance controls during last year due to COVID, in total nearly 3 months. These let the face-to-face communication became hard, and at some
+special cases the development is hard to push forward.
+Secondly, the data source access provided by CMICT is heavily delayed, besides is not aligned. 
+Although the data field description document is provided, it is hard to development the system only by the document.
+There are lots of trivial cases of data that need to be reviewed carefully only with real time production data.
+Therefore, the delayed data access directly delayed the development progress. The non-aligned access also have negative efforts on the progress with similar reason.
+The test data does not reflect the detailed encoding and data structure of production data, as well as the data manipulation. This causes lot of issues that works with 
+test data but failed at production data.
+
+### Software Engineering
+
+Software engineering is something that can not be understood until a practical project is executed.
+Although at least two members in the development experience of commercial project, this project still beyond our experience.
+Therefore, the reflection on software engineering aspect is important for future academic development or practical projects.
+Actually, we believe this is the most valuable experience we could get from the NTSS project.
+
+We would like to highlight three issues of software engineering that could be improved: the documentation work, the project procedure control
+and software quality control. These issues are critical to the development progress and delivery quality. In fact, most of them have been already 
+discussed by many developers and engineers [@brooksMythicalManmonthEssays1995], but the reflection with project associated is still important.
+
+**Documentation**. Developers usually does not like documentation, but it reflects how the developer and team understands the project and track the development progress.
+For teamwork, a proper set of document can help other members understand the big picture better. In this project, CMICT criticized the document writing,
+especially the requirement document. As described before, the project manager is the one who should write the requirement document, 
+because he needs to analyse requirements, discuss with the team and decide how the systems should be developed.
+This requires the project manager to have best understanding to the requirement, therefore he has the authority to answer all the requirement related questions in the team,
+and able to reject improper additional requirements.
+However, in NTSS, the requirement document is simply delivered by the project manager to the developers, and ask them to finish. This does not only lead to the low quality of requirement
+document, but also let the project manager not able to control the requirement. Therefore, two serious aspects happened: from the CMICT prospective, the requirement document 
+was considered as just a copy of what CMICT provided, without understanding; from the team prospective, the whole big picture was lost, and the negotiation between CMICT and 
+development team is failed. 
+
+**Procedure Control**. The procedure control involves two aspects: to plan how the development should move forward, and to summarise the development result. And the procedure control
+should be reviewed every single development section. In the agile development methodology, the progress will be reviewed every sprint(2-3 weeks) and be emphasised every day. In the progress 
+of NTSS development, there are some planning at the beginning of each stage, then the plan execution is badly tracked. From the prospective of developer, every development stage
+literally tons of tasks and requirements came in every week, even every day. What is worse, those tasks or requirements usually without detailed description and importance level, 
+therefore it was hard to make development plan, not to speak of tracking and reviewing. The myth from the stakeholder that: "although the development is behind of schedule, it could 
+be finished by next week" added to this situation, which let the team try to finish everything by working overtime. When reviewing from this point, such overtime working does not 
+improve the progress much but only add extra fatigue and anxiety of the team. In the end, the development was still cost at least twice the planned time, 
+regardless of COVID period. 
+
+Things did not improve better until the team followed a workflow based on GitLab at the last stage. The workflow first requires the project manager describe the issue(features, bugs to be fixed) properly, and put 
+the issue in the issue pool. The board representing category and tags to mark priority are applied to manage the issues. The developer then go to the issue pool to identify and discuss the issue. Once 
+an issue is solved, usually involves an implementation of feature or a fix of bug, it will be notified to the project manager and closed if approval. 
+
+This is a simple workflow but still cause the team about 1 month to master. A major difficulty is how to describe the issue properly so that a bug can be fast identified: 
+the project manager or the tester's view usually does not fully match the developer's. A common mistake is the bug is described by just a single line of words or a screenshot image, which 
+does not help the development. Again, we would like to reference it to the documentation issue: the improper document make the task hard to plan and not trackable, therefore the 
+progress will likely be out of control. 
+
+
+![Issue Boards](../images/issue_board.png){#fig:issue_board}
+![Issue Lists](../images/issue_list.png){#fig:issue_list}
+
+We found several statistics is important in the software development practice. First, a development period of a normal feature will last 2-3 weeks, regardless of overtime working.
+Second, during the development time, only 50% time should be use on coding, the rest workload should be on document writing, meeting and detailed development design. Third, a reasonable
+workload is about 100-150 lines of code every day for a developer, this count will reduce when the system is becoming more complex, for the developer need to understand more code.
+What's interest is some of them is actually be described by @brooksMythicalManmonthEssays1995. 
+
+**Software Quality Control**. The project did not be test properly until the end of stage, and the quality of software deliveries are often criticized by CMICT. 
+We conclude that to improve the software quality, two critical things must be done. Firstly, the system must be well-designed at the beginning of development. This requires
+good understanding of requirement, and rich system design experience. Unfortunately, from previous discussion, it is clear that both of them are not fully achieved in this project.
+The design stage is only a very small part of first week according to the original plan. Actually, the final NTSS architecture was forced to be designed at the stage that further 
+change on the system became too heavy to afford. 
+
+The final stage was focused on the testing, but if the unit testing is done properly, some problems can be identified early to reduce the final testing cost. The unit testing procedure
+can be described as follows: when part of system functions is confirmed, the test case can be designed according to system specification and edge case. The feature must pass the 
+related unit test after development or alter. Similarly, ideally the system should pass all unit test. Apart from the early testing feature, unit testing can also force the 
+test case writer to think the problem at programming level and have proper understanding of requirements. Therefore, this will help unify the big system picture and improve communication 
+inside the team. From the programming level, unit testing will change the design of code to make it open for testing, which will improve the whole structure. 
+Due to time limit and legacy code, the team only made small attempt to apply unit testing. However, we believe this methodology should be applied in future development, both in engineering project 
+and academic developing. The time cost on writing unit testing will delay the development, but provide better structure and ensure software quality. According to @brooksMythicalManmonthEssays1995, 
+a proper time plan is 1/3 planning, 1/6 code writing, 1/4 unit testing, and 1/4 final regression testing.
 
 ### Human Factors
 
+Even we are now reaching the age that ChatGPT could help the user to write code, it is still the developers that combine functions, classes, code snippets, modules, libraries organically to form
+runnable code. Especially for large-scale projects, no silver bullet exists. Therefore, one should pay special attention on the human factor in the software developing progress. 
+In this section, we would discuss three important factors in current and future projects.
+
+
+**Purpose**. One start programming usually based on three purposes: 
+    1. Programming is necessary to achieve certain requirements; 
+    2. Programming production make economic benefits;
+    3. The developer can gain mental happiness like creation or constant learning.
+
+Purpose 1 and 2 are mainly external factors. Purpose 3 is highly related to intrinsic motivation of developers, but can be easily eliminated by improper project management, ineffective communication,
+etc. If such motivation is low, the programming will become tiring and boring, therefore reduce productivity. We would expect the future project can satisfy the three motivation.
+
+**Leader**. The leader plays important role in the software development team, for he is responsible for requirement and system definition, communication between team and stakeholder, and control progress, cost and quality. 
+The leader does not need to write code, but he should be the one that can control and assign all the development resource, including human resource and assets. 
+The role that the team leader plays is so important that he must have strong authority to control the team, especially considering the developers usually have strong personality.
+The leader's authority does not naturally from the position he at, but from good understanding of the requirement, proper progress management and effective communication. The kindness and technical excellence would improve 
+the authority but not critical. In this project, we do not have a single person take the responsibility of leader. Theoretically, the project manager should take the role, but both of them 
+failed to prove they are qualified for this position. The lacking of leader is a potential risk in future teamwork.
+
+**Teamwork**. The teamwork itself is one of the critical source of development complexity. Therefore, effective communication and cooperation is important. The improper communication will not only cost 
+more time to understand, what's more risky is when misunderstanding happened, it might directly lead to a development failure. 
+In this project, from personal view as a backend developer, I had good communication with frontend and simulation developer. The most serious ineffective communication and misunderstanding happened
+between the project manager. How to achieve good teamwork is still a great topic in management field, here we just list some importance experience:
+1. Ensure each member is responsible to his job. It would be better if one show he is willing to help others in the team.
+2. There are many roles in the team, but a common big picture of system and project is important.
+3. Communication, especially meeting, should be quick, direct to the critical part. The meeting should be held only necessary.
+4. The communication complexity will increase exponentially with the size of team increasing. As @brooksMythicalManmonthEssays1995 emphasised: Adding manpower to a late software project makes it later.
+5. A meeting taking about too detailed stuff should be considered as bad. Effective meeting must come up with executable plan or actions.

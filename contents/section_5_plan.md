@@ -7,18 +7,20 @@ bibliography: ['../ref.bib']
 Plan and Future Works
 ======
 This section will briefly discuss the plan execution status this year and plan for
-incoming year. Figure below represents the PhD lifecycle plan. Currently, We are
+incoming year. [Figure @fig:plany2] represents the PhD lifecycle plan. Currently, We are
 at the end of Quarter 3 of Year 2.
 
 <!-- LTeX: enabled=false -->
-\begin{figure}[htbp]
+<!-- \begin{figure}[htbp]
     \label{fig:plan-y2}
 
     \centering
     \includegraphics[]{../images/plany2.PNG}  
     \caption{Gantt chart for Year 2}
-\end{figure}
+\end{figure} -->
 <!-- LTeX: enabled=true -->
+
+![Gantt chart for Year 2](../images/plany2.PNG){#fig:plany2}
 
 ## Review works in last year
 
@@ -45,14 +47,7 @@ participating the competition is late, we have only 5 weeks for the whole
 competition (the whole competition lasted for 3 months). Under that
 circumstances, we did our best.
 
-\begin{figure}[htbp]
-    \label{fig:plan-y1}
-
-    \centering
-    \includegraphics[]{../images/plany1.PNG}  
-    \caption{Gantt chart for Year 1}
-\end{figure}
-<!-- ![Gantt chart for Year 1](../images/plany1.PNG) -->
+![Gantt chart for Year 1](../images/plany1.PNG){#fig:plany1}
 
 
 ## Next-step Plan
