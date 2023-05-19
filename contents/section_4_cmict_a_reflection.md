@@ -443,6 +443,7 @@ progress will likely be out of control.
 
 
 ![Issue Boards](../images/issue_board.png){#fig:issue_board}
+
 ![Issue Lists](../images/issue_list.png){#fig:issue_list}
 
 We found several statistics is important in the software development practice. First, a development period of a normal feature will last 2-3 weeks, regardless of overtime working.
