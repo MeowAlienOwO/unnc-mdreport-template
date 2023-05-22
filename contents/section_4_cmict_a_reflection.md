@@ -3,8 +3,6 @@ bibliography: ['../ref.bib']
 ---
 
 
- <!-- with a server module as backend, a client module as frontend, and a simulation module. -->
-
 CMICT Data Dashboard & Simulation Project: A Engineering Perspective Reflection
 ======
 
@@ -21,7 +19,6 @@ in future.
 
 ## Project Introduction
 
-<!-- This section will briefly introduce the project. -->
 
 ### Ningbo Daxie China Merchants International Container Terminal(CMICT)
 Ningbo Daxie China Merchants International Container Terminal(CMICT)[@cmictNINGBODAXIECHINA2023] is located at Beilun District, Ningbo city.
@@ -92,24 +89,12 @@ the container in the yards will be reallocated due to efficiency issue. Such tas
 
 
 
-<!-- LTeX: enabled=false -->
-<!-- \begin{figure}[htbp]
-
-\hypertarget{fig:operation_model}{%
-\centering
-\hfill\break{\centering\includegraphics{../images/Port-Operation-Logic-SimpleLogic.pdf}}
-\caption{Maritime Container Port Operation Model}\label{fig:operation_model}
-}
-\end{figure} -->
-<!-- LTeX: enabled=true -->
-
 ### Physical Port Area
 
 ![CMICT Port Area](../images/PortArea.png){#fig:port_area}
 
 CMICT has total 1.657 million square meters area with four deep water berths. The quay line is 1500 meters long with 17.5 meters water depth.
 [Figure @fig:port_area] represents a top-down view of the port area. The port area can be briefly divided into four parts:
-<!-- Figure~\ref{fig:port_area}  -->
 
 1. **Quay Line**: Quay line is the place where container ship stop at. Usually the vessel is stopped at certain berth 
 place according to vessel plan. The quay cranes are located at the quay line, execute container transportation
@@ -130,16 +115,6 @@ yard to load or unload containers.
 the customhouse, and container freight station. The project does not involve this area much because it does not have much influence on the whole container transportation flow.
 
 
-<!-- LTeX: enabled=false -->
-<!-- \begin{figure}[htbp]
-    \label{fig:port_area}
-    \centering
-    \includegraphics[]{../images/PortArea.pdf}
-    \caption{CMICT Port Area}
-\end{figure} -->
-
-
-<!-- LTeX: enabled=true -->
 
 ### Container Transportation Equipments
 
