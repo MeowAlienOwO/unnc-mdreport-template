@@ -117,7 +117,7 @@ fuel, etc.
 
 The most common variant is Capitalized VRP(CVRP), where the capacity of the
 vehicle is limited. We illustrate the mathematical formulation of CVRP by
-equation~\ref{eq:vrp_formulation}. We use a graph $G=(V, E)$ represents the
+equation \ref{eq:vrp_formulation}. We use a graph $G=(V, E)$ represents the
 roadmap of VRP problem. Vertices set $V$ includes all customer nodes and the
 depot point, variable $i$, $j$ each represents a single vertex. Vertex $0$
 represents the depot point, while other vertices represent customer points.
